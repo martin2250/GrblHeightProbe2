@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GrblHeightProbe2" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SerialBaudRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">115200</Value>
+    </Setting>
+    <Setting Name="NewHeightMapPoints" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">10, 10</Value>
+    </Setting>
+    <Setting Name="NewHeightMapGridSize" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="NewHeightMapOffset" Type="System.Drawing.SizeF" Scope="User">
+      <Value Profile="(Default)">-25, -25</Value>
+    </Setting>
+    <Setting Name="Safety" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ProbePlunge" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="ProbeDepth" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">-10</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
