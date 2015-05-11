@@ -237,7 +237,10 @@ namespace GrblHeightProbe2
 							{
 								Vector3 end = s.Start.Interpolate(s.End, (float)x / (float)divisions);
 								end.Z += map.GetHeightAt(end.X, end.Y);
-								yield return new Straight(pos, end, false);
+								Straight st = new Straight(pos, end, false);
+								if (x == 1)
+									st.FeedRate = s.FeedRate;
+								yield return st;
 								pos = end;
 							}
 						}
@@ -276,7 +279,12 @@ namespace GrblHeightProbe2
 
 							end.Z += map.GetHeightAt(end.X, end.Y);
 
-							yield return new Arc(pos, end, a.Center, a.Direction);
+							Arc arc = new Arc(pos, end, a.Center, a.Direction);
+
+							if(x == 1)
+								arc.FeedRate = a.FeedRate;
+
+							yield return arc;
 							pos = end;
 						}
 					}
