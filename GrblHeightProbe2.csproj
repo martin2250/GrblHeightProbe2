@@ -47,17 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GCode\Arc.cs" />
-    <Compile Include="ChangeSettings.cs">
+    <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeSettings.Designer.cs">
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GCode\Arc.cs" />
+    <Compile Include="Forms\ChangeSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeSettings.Designer.cs">
       <DependentUpon>ChangeSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsoleWindow.cs">
+    <Compile Include="Forms\ConsoleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsoleWindow.Designer.cs">
+    <Compile Include="Forms\ConsoleWindow.Designer.cs">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="GCode\GCodeCommand.cs" />
@@ -65,6 +71,12 @@
     <Compile Include="GRBL.cs" />
     <Compile Include="HeightMap.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Main\Main.ApplyMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.HeightMapIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main\Main.Probing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,10 +90,10 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="GCode\Movement.cs" />
-    <Compile Include="NewHeightMap.cs">
+    <Compile Include="Forms\NewHeightMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewHeightMap.Designer.cs">
+    <Compile Include="Forms\NewHeightMap.Designer.cs">
       <DependentUpon>NewHeightMap.cs</DependentUpon>
     </Compile>
     <Compile Include="GCode\OtherCode.cs" />
@@ -94,16 +106,19 @@
     </Compile>
     <Compile Include="GCode\Straight.cs" />
     <Compile Include="Vector3.cs" />
-    <EmbeddedResource Include="ChangeSettings.resx">
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeSettings.resx">
       <DependentUpon>ChangeSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsoleWindow.resx">
+    <EmbeddedResource Include="Forms\ConsoleWindow.resx">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewHeightMap.resx">
+    <EmbeddedResource Include="Forms\NewHeightMap.resx">
       <DependentUpon>NewHeightMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -133,7 +148,9 @@
   <ItemGroup>
     <None Include="Resources\pause52.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\coin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

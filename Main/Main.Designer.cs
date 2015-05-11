@@ -52,6 +52,7 @@
 			this.openFileDialogHMap = new System.Windows.Forms.OpenFileDialog();
 			this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
 			this.openFileDialogGCode = new System.Windows.Forms.OpenFileDialog();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
@@ -64,10 +65,11 @@
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.connectionToolStripMenuItem1,
-            this.gCodeToolStripMenuItem});
+            this.gCodeToolStripMenuItem,
+            this.aboutToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(379, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(431, 24);
 			this.menuStripMain.TabIndex = 0;
 			this.menuStripMain.Text = "menuStripMain";
 			// 
@@ -170,7 +172,7 @@
 			// applyToFilesToolStripMenuItem
 			// 
 			this.applyToFilesToolStripMenuItem.Name = "applyToFilesToolStripMenuItem";
-			this.applyToFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.applyToFilesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.applyToFilesToolStripMenuItem.Text = "Apply to Files";
 			this.applyToFilesToolStripMenuItem.Click += new System.EventHandler(this.applyToFilesToolStripMenuItem_Click);
 			// 
@@ -180,7 +182,7 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonStart,
             this.toolStripButtonPause});
-			this.toolStrip1.Location = new System.Drawing.Point(287, 0);
+			this.toolStrip1.Location = new System.Drawing.Point(339, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(213, 25);
 			this.toolStrip1.TabIndex = 2;
@@ -254,6 +256,13 @@
 			this.openFileDialogGCode.Multiselect = true;
 			this.openFileDialogGCode.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogGCode_FileOk);
 			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,7 +275,6 @@
 			this.Name = "Main";
 			this.Text = "GRBL Height Probe 2 by martin2250";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-			this.Load += new System.EventHandler(this.Main_Load);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
@@ -303,6 +311,7 @@
 		private System.Windows.Forms.ToolStripMenuItem gCodeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem applyToFilesToolStripMenuItem;
 		private System.Windows.Forms.OpenFileDialog openFileDialogGCode;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

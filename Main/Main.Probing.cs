@@ -93,6 +93,21 @@ namespace GrblHeightProbe2
 			}
 		}
 
+		private void toolStripButtonStart_Click(object sender, EventArgs e)
+		{
+			if (CurrentMap != null && CurrentMap.NotProbed.Count > 0)
+			{
+				GRBL.ProbingRunning = true;
+
+				GRBL.OnLineReceived += GRBL_OnLineReceived;
+
+				GRBL.SendLine("?");
+
+				toolStripButtonStart.Enabled = false;
+				toolStripButtonPause.Enabled = true;
+			}
+		}
+
 		private void toolStripButtonPause_Click(object sender, EventArgs e)
 		{
 			GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0Z{0:F3}", Set.Safety));
