@@ -65,14 +65,16 @@
     <Compile Include="GRBL.cs" />
     <Compile Include="HeightMap.cs" />
     <Compile Include="Helpers.cs" />
-    <Compile Include="Main.Buttons.cs">
-      <SubType>Form</SubType>
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Main\Main.Probing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Main\Main.Buttons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="GCode\Movement.cs" />
@@ -98,7 +100,7 @@
     <EmbeddedResource Include="ConsoleWindow.resx">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewHeightMap.resx">
@@ -131,6 +133,7 @@
   <ItemGroup>
     <None Include="Resources\pause52.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

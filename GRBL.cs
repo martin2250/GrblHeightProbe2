@@ -28,8 +28,12 @@ namespace GrblHeightProbe2
 
 		public static void SendLine(string line)
 		{
-			Console.WriteLine(">{0}", line);
 			Port.WriteLine(line);
+
+			Console.WriteLine(">{0}", line);
+
+			if (Settings.Default.LogTrafficToFile)
+				System.IO.File.AppendAllText("trafficLog.txt", ">" + line + "\n");
 		}
 
 		public static void Close()

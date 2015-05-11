@@ -183,53 +183,31 @@ namespace GrblHeightProbe2
 			return new PointF(x * GridSize + OffsetX, y * GridSize + OffsetY);
 		}
 
-		private Color ColorFromHeight(float val)
+		public float HighestNeighbour(int x, int y)
 		{
-			if (MaxZ > MinZ)
-			{
-				val -= MinZ;
-				val /= (MaxZ - MinZ);
-			}
-			else
-				return Color.Green;
+			float max = float.MinValue;
 
-			float r = 0, g = 0, b = 0;
-
-			if (val < 0.2)
+			if (x > 0 && HasValue[x - 1, y])
 			{
-				b = 1;
-				g = 5 * val;
-			}
-			else if (val < 0.4)
-			{
-				val -= 0.2F;
-
-				g = 1;
-				b = 1 - 5 * val;
-			}
-			else if (val < 0.6)
-			{
-				val -= 0.4F;
-
-				g = 1;
-				r = 5 * val;
-			}
-			else if (val < 0.8)
-			{
-				val -= 0.6F;
-
-				r = 1;
-				g = 1 - 5 * val;
-			}
-			else
-			{
-				val -= 0.8F;
-
-				r = 1;
-				b = 5 * val;
+				max = Math.Max(max, this[x - 1, y]);
 			}
 
-			return Color.FromArgb(255, (int)(r * 255), (int)(g * 255), (int)(b * 255));
+			if(y > 0 && HasValue[x, y - 1])
+			{
+				max = Math.Max(max, this[x, y - 1]);
+			}
+
+			if (x < SizeX - 1 && HasValue[x + 1, y])
+			{
+				max = Math.Max(max, this[x + 1, y]);
+			}
+
+			if (y < SizeY - 1 && HasValue[x, y + 1])
+			{
+				max = Math.Max(max, this[x, y + 1]);
+			}
+
+			return max;
 		}
 
 		public Bitmap GetPreview()
@@ -257,7 +235,7 @@ namespace GrblHeightProbe2
 				{
 					if (HasValue[x, y])
 					{
-						using (Brush Cell = new SolidBrush(ColorFromHeight(this[x, y])))
+						using (Brush Cell = new SolidBrush(Helpers.ColorFromHeight(this[x, y], MinZ, MaxZ)))
 						{
 							gfx.FillRectangle(Cell, x * IMG_CellSize + IMG_CellBorder, (SizeY - 1 - y) * IMG_CellSize + IMG_CellBorder, IMG_CellSize - 2 * IMG_CellBorder, IMG_CellSize - 2 * IMG_CellBorder);
 						}

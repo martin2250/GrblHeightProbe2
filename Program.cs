@@ -14,7 +14,12 @@ namespace GrblHeightProbe2
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			GRBL.OnLineReceived += delegate(string line) { Console.WriteLine(line); };
+			GRBL.OnLineReceived += delegate(string line) 
+			{ 
+				Console.WriteLine(line);
+				if (Settings.Default.LogTrafficToFile)
+					System.IO.File.AppendAllText("trafficLog.txt", line + "\n");
+			};
 
 
 

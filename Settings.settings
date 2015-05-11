@@ -23,5 +23,8 @@
     <Setting Name="ProbeDepth" Type="System.Single" Scope="User">
       <Value Profile="(Default)">-10</Value>
     </Setting>
+    <Setting Name="LogTrafficToFile" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

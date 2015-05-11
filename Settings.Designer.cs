@@ -106,5 +106,17 @@ namespace GrblHeightProbe2 {
                 this["ProbeDepth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LogTrafficToFile {
+            get {
+                return ((bool)(this["LogTrafficToFile"]));
+            }
+            set {
+                this["LogTrafficToFile"] = value;
+            }
+        }
     }
 }

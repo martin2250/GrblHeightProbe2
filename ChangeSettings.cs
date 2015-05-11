@@ -19,7 +19,8 @@ namespace GrblHeightProbe2
 			"SerialBaudRate",
 			"Safety",
 			"ProbePlunge",
-			"ProbeDepth"
+			"ProbeDepth",
+			"LogTrafficToFile"
 		};
 
 		Type[] Types = new Type[] 
@@ -27,10 +28,13 @@ namespace GrblHeightProbe2
 			typeof(int),
 			typeof(float),
 			typeof(float),
-			typeof(float)
+			typeof(float),
+			typeof(bool)
 		};
 
-		List<TextBox> boxes = new List<TextBox>();
+		List<Control> controlList = new List<Control>();
+
+		const int lineDist = 20;
 
 		public ChangeSettings()
 		{
@@ -38,18 +42,30 @@ namespace GrblHeightProbe2
 
 			for(int i = 0; i < Names.Length; i++)
 			{
-				TextBox tb = new TextBox();
-				tb.Text = set[Names[i]].ToString();
-				tb.Size = new Size(100, tb.Size.Height);
-				tb.Location = new Point(105, i * (tb.Height + 5) + 20);
-				Controls.Add(tb);
+				if (Types[i] != typeof(bool))
+				{
+					TextBox tb = new TextBox();
+					tb.Text = set[Names[i]].ToString();
+					tb.Size = new Size(100, lineDist);
+					tb.Location = new Point(105, i * (lineDist + 5) + 20);
+					Controls.Add(tb);
+					controlList.Add(tb);
+				}
+				else
+				{
+					CheckBox cb = new CheckBox();
+					cb.Checked = (bool)set[Names[i]];
+					cb.Location = new Point(105, i * (lineDist + 5) + 20);
+					Controls.Add(cb);
+					controlList.Add(cb);
+				}
 
 				Label l = new Label();
 				l.Text = Names[i];
 				l.AutoSize = true;
-				l.Location = new Point(100 - TextRenderer.MeasureText(l.Text,new Font(l.Font.FontFamily, l.Font.Size, l.Font.Style)).Width, i * (tb.Height + 5) + 20);
+				l.Location = new Point(100 - TextRenderer.MeasureText(l.Text, new Font(l.Font.FontFamily, l.Font.Size, l.Font.Style)).Width, i * (lineDist + 5) + 20);
 				Controls.Add(l);
-				boxes.Add(tb);				
+								
 			}
 
 
@@ -71,13 +87,16 @@ namespace GrblHeightProbe2
 				{
 					case "Int32":
 						int x;
-						success &= int.TryParse(boxes[i].Text, out x);
+						success &= int.TryParse(controlList[i].Text, out x);
 						results[i] = x;
 						break;
 					case "Single":
 						float f;
-						success &= float.TryParse(boxes[i].Text, out f);
+						success &= float.TryParse(controlList[i].Text, out f);
 						results[i] = f;
+						break;
+					case "Boolean":
+						results[i] = ((CheckBox)controlList[i]).Checked;
 						break;
 				}
 			}
