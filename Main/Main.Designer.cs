@@ -33,6 +33,7 @@
 			this.newHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportToCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resetToDefaultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,7 @@
 			this.manualConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.applyToFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
@@ -52,7 +54,7 @@
 			this.openFileDialogHMap = new System.Windows.Forms.OpenFileDialog();
 			this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
 			this.openFileDialogGCode = new System.Windows.Forms.OpenFileDialog();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
 			this.menuStripMain.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
@@ -69,7 +71,7 @@
             this.aboutToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(431, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(339, 24);
 			this.menuStripMain.TabIndex = 0;
 			this.menuStripMain.Text = "menuStripMain";
 			// 
@@ -78,7 +80,8 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newHeightMapToolStripMenuItem,
             this.openHeightMapToolStripMenuItem,
-            this.saveHeightMapToolStripMenuItem});
+            this.saveHeightMapToolStripMenuItem,
+            this.exportToCSVToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
 			this.fileToolStripMenuItem.Text = "Height Map";
@@ -86,23 +89,30 @@
 			// newHeightMapToolStripMenuItem
 			// 
 			this.newHeightMapToolStripMenuItem.Name = "newHeightMapToolStripMenuItem";
-			this.newHeightMapToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+			this.newHeightMapToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.newHeightMapToolStripMenuItem.Text = "New";
 			this.newHeightMapToolStripMenuItem.Click += new System.EventHandler(this.newHeightMapToolStripMenuItem_Click);
 			// 
 			// openHeightMapToolStripMenuItem
 			// 
 			this.openHeightMapToolStripMenuItem.Name = "openHeightMapToolStripMenuItem";
-			this.openHeightMapToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+			this.openHeightMapToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.openHeightMapToolStripMenuItem.Text = "Open";
 			this.openHeightMapToolStripMenuItem.Click += new System.EventHandler(this.openHeightMapToolStripMenuItem_Click);
 			// 
 			// saveHeightMapToolStripMenuItem
 			// 
 			this.saveHeightMapToolStripMenuItem.Name = "saveHeightMapToolStripMenuItem";
-			this.saveHeightMapToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+			this.saveHeightMapToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.saveHeightMapToolStripMenuItem.Text = "Save";
 			this.saveHeightMapToolStripMenuItem.Click += new System.EventHandler(this.saveHeightMapToolStripMenuItem_Click);
+			// 
+			// exportToCSVToolStripMenuItem
+			// 
+			this.exportToCSVToolStripMenuItem.Name = "exportToCSVToolStripMenuItem";
+			this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.exportToCSVToolStripMenuItem.Text = "Export to CSV";
+			this.exportToCSVToolStripMenuItem.Click += new System.EventHandler(this.exportToCSVToolStripMenuItem_Click);
 			// 
 			// settingsToolStripMenuItem
 			// 
@@ -175,6 +185,13 @@
 			this.applyToFilesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.applyToFilesToolStripMenuItem.Text = "Apply to Files";
 			this.applyToFilesToolStripMenuItem.Click += new System.EventHandler(this.applyToFilesToolStripMenuItem_Click);
+			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// toolStrip1
 			// 
@@ -256,12 +273,11 @@
 			this.openFileDialogGCode.Multiselect = true;
 			this.openFileDialogGCode.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogGCode_FileOk);
 			// 
-			// aboutToolStripMenuItem
+			// saveFileDialogExport
 			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-			this.aboutToolStripMenuItem.Text = "About";
-			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			this.saveFileDialogExport.DefaultExt = "csv";
+			this.saveFileDialogExport.Filter = "CSV Files|*.csv|All Files|*.*";
+			this.saveFileDialogExport.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogExport_FileOk);
 			// 
 			// Main
 			// 
@@ -312,6 +328,8 @@
 		private System.Windows.Forms.ToolStripMenuItem applyToFilesToolStripMenuItem;
 		private System.Windows.Forms.OpenFileDialog openFileDialogGCode;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exportToCSVToolStripMenuItem;
+		private System.Windows.Forms.SaveFileDialog saveFileDialogExport;
     }
 }
 

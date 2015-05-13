@@ -50,5 +50,41 @@ namespace GrblHeightProbe2
 				MessageBox.Show("Could not open HeightMap\n" + ex.Message);
 			}
 		}
+
+		private void exportToCSVToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			saveFileDialogExport.ShowDialog();
+		}
+
+		private void saveFileDialogExport_FileOk(object sender, CancelEventArgs e)
+		{
+			try
+			{
+				string path = saveFileDialogExport.FileName;
+
+				StreamWriter file = new StreamWriter(path);
+
+				for (int y = CurrentMap.SizeY - 1; y >= 0; y--)
+				{
+					for (int x = 0; x + 1 < CurrentMap.SizeX; x++)
+					{
+						file.Write("{0:0.###};", CurrentMap[x, y]);
+					}
+
+					file.WriteLine(CurrentMap[CurrentMap.SizeX - 1, y].ToString("0.###"));
+				}
+
+				file.WriteLine("Grid Size;{0}", CurrentMap.GridSize);
+				file.WriteLine(";X;Y");
+				file.WriteLine("Points;{0};{1}", CurrentMap.SizeX, CurrentMap.SizeY);
+				file.WriteLine("Offset;{0};{1}", CurrentMap.OffsetX, CurrentMap.OffsetY);
+
+				file.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Could not write file:\n" + ex.Message);
+			}
+		}
 	}
 }
