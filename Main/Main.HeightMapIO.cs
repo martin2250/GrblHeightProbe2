@@ -35,9 +35,9 @@ namespace GrblHeightProbe2
 			try
 			{
 				CurrentMap = new HeightMap(new BinaryReader(File.OpenRead(openFileDialogHMap.FileName)));
-				CurrentMap.OnPointAdded += CurrentMap_OnPointAdded;
+				CurrentMap.OnPointAdded += CurrentMap_RedrawPreview;
 
-				CurrentMap_OnPointAdded();
+				CurrentMap_RedrawPreview();
 
 				toolStripButtonStart.Enabled = (CurrentMap.NotProbed.Count > 0) & GRBL.Connected;
 			}

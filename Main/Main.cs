@@ -18,5 +18,10 @@ namespace GrblHeightProbe2
 			new About().ShowDialog();
 		}
 
+		private void pictureBoxPreview_SizeChanged(object sender, EventArgs e)
+		{
+			CurrentMap_RedrawPreview();
+		}
+
 	}
 }

@@ -265,9 +265,9 @@
 			this.pictureBoxPreview.Location = new System.Drawing.Point(12, 28);
 			this.pictureBoxPreview.Name = "pictureBoxPreview";
 			this.pictureBoxPreview.Size = new System.Drawing.Size(795, 467);
-			this.pictureBoxPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBoxPreview.TabIndex = 1;
 			this.pictureBoxPreview.TabStop = false;
+			this.pictureBoxPreview.SizeChanged += new System.EventHandler(this.pictureBoxPreview_SizeChanged);
 			this.pictureBoxPreview.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxPreview_MouseMove);
 			// 
 			// openFileDialogGCode

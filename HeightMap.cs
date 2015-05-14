@@ -13,7 +13,7 @@ namespace GrblHeightProbe2
 		const string FileHeader = "HeightMapV2.0 Do not modify!";
 
 		private float[,] Value;
-		private bool[,] HasValue;
+		public bool[,] HasValue;
 
 		public int SizeX { get; private set; }
 		public int SizeY { get; private set; }
@@ -178,7 +178,7 @@ namespace GrblHeightProbe2
 			return new PointF(point.X * GridSize + OffsetX, point.Y * GridSize + OffsetY);
 		}
 
-		public PointF GetCoordinates(float x, float y)
+		public PointF GetCoordinates(int x, int y)
 		{
 			return new PointF(x * GridSize + OffsetX, y * GridSize + OffsetY);
 		}

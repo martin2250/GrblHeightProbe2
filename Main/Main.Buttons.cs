@@ -95,8 +95,8 @@ namespace GrblHeightProbe2
 			{
 				CurrentMap = new HeightMap(Set.NewHeightMapPoints.Width, Set.NewHeightMapPoints.Height, Set.NewHeightMapGridSize, Set.NewHeightMapOffset.Width, Set.NewHeightMapOffset.Height);
 
-				CurrentMap.OnPointAdded += CurrentMap_OnPointAdded;
-				CurrentMap_OnPointAdded();
+				CurrentMap.OnPointAdded += CurrentMap_RedrawPreview;
+				CurrentMap_RedrawPreview();
 
 				toolStripButtonStart.Enabled = GRBL.Connected;
 			}
