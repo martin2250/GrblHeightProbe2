@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO.Ports;
-using System.IO;
-using System.Text.RegularExpressions;
 
 namespace GrblHeightProbe2
 {
@@ -26,5 +17,11 @@ namespace GrblHeightProbe2
 		{
 			new About().ShowDialog();
 		}
+
+		private void pictureBoxPreview_SizeChanged(object sender, EventArgs e)
+		{
+			CurrentMap_RedrawPreview();
+		}
+
 	}
 }
