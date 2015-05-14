@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.menuStripMain = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +56,7 @@
 			this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
 			this.openFileDialogGCode = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.menuStripMain.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
@@ -266,6 +268,7 @@
 			this.pictureBoxPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBoxPreview.TabIndex = 1;
 			this.pictureBoxPreview.TabStop = false;
+			this.pictureBoxPreview.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxPreview_MouseMove);
 			// 
 			// openFileDialogGCode
 			// 
@@ -330,6 +333,7 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exportToCSVToolStripMenuItem;
 		private System.Windows.Forms.SaveFileDialog saveFileDialogExport;
+		private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

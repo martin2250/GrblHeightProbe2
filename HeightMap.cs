@@ -210,67 +210,6 @@ namespace GrblHeightProbe2
 			return max;
 		}
 
-		public Bitmap GetPreview()
-		{
-			const int IMG_CellSize = 80;
-			const int IMG_CellBorder = 3;
-
-			Bitmap i = new Bitmap(SizeX * IMG_CellSize, SizeY * IMG_CellSize);
-			Graphics gfx = Graphics.FromImage(i);
-
-			Brush Background = new SolidBrush(Color.Gray);
-
-			Brush Text = new SolidBrush(Color.Black);
-
-			StringFormat TextSF = new StringFormat();
-			TextSF.Alignment = StringAlignment.Center;
-
-			Font font = new Font("Comic Sans", 11);
-
-			gfx.FillRectangle(Background, 0, 0, i.Size.Width, i.Size.Height);
-
-			for (int x = 0; x < SizeX; x++)
-			{
-				for (int y = 0; y < SizeY; y++)
-				{
-					if (HasValue[x, y])
-					{
-						using (Brush Cell = new SolidBrush(Helpers.ColorFromHeight(this[x, y], MinZ, MaxZ)))
-						{
-							gfx.FillRectangle(Cell, x * IMG_CellSize + IMG_CellBorder, (SizeY - 1 - y) * IMG_CellSize + IMG_CellBorder, IMG_CellSize - 2 * IMG_CellBorder, IMG_CellSize - 2 * IMG_CellBorder);
-						}
-
-						gfx.DrawString(
-							this[x, y].ToString("F2"),
-							font,
-							Text,
-							x * IMG_CellSize + IMG_CellSize / 2,
-							(SizeY - 1 - y) * IMG_CellSize + IMG_CellSize / 2,
-							TextSF
-						);
-					}
-
-					PointF Coordinates = GetCoordinates(x, y);
-
-					gfx.DrawString(
-						string.Format("({0:F2}|{1:F2})", Coordinates.X, Coordinates.Y),
-						font,
-						Text,
-						x * IMG_CellSize + IMG_CellSize / 2,
-						(SizeY - 1 - y) * IMG_CellSize + IMG_CellSize / 2 - font.Height,
-						TextSF
-					);
-				}
-			}
-
-			gfx.Dispose();
-			Background.Dispose();
-			Text.Dispose();
-			font.Dispose();
-			TextSF.Dispose();
-			return i;
-		}
-
 		public float GetHeightAt(float x, float y)
 		{
 			x = (x - OffsetX) / GridSize;

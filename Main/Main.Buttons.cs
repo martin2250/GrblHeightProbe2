@@ -101,13 +101,5 @@ namespace GrblHeightProbe2
 				toolStripButtonStart.Enabled = GRBL.Connected;
 			}
 		}
-
-		void CurrentMap_OnPointAdded()
-		{
-			if (pictureBoxPreview.Image != null)
-				pictureBoxPreview.Image.Dispose();
-
-			pictureBoxPreview.Image = CurrentMap.GetPreview();
-		}
 	}
 }
