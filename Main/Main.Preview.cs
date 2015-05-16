@@ -74,12 +74,16 @@ namespace GrblHeightProbe2
 				}
 			}
 
+
 			Pen crossPen = new Pen(Color.Black, 2);
 
 			for (int x = 0; x < map.SizeX; x++)
 			{
 				for (int y = 0; y < map.SizeY; y++)
 				{
+					if (!map.HasValue[x, y])
+						continue;
+
 					gfx.DrawLine(crossPen,
 						x * (PixelsPerCheck + border) + .5f,
 						ActPreviewSize.Height - (y * (PixelsPerCheck + border)) + 4,
@@ -127,7 +131,7 @@ namespace GrblHeightProbe2
 				int x = (int)Math.Round((float)e.Location.X / (PixelsPerCheck + border));
 				int y = (int)Math.Round((float)(ActPreviewSize.Height - e.Location.Y) / (PixelsPerCheck + border));
 
-				if(x >= CurrentMap.SizeX || y >= CurrentMap.SizeY || x < 0 || y < 0)
+				if(x >= CurrentMap.SizeX || y >= CurrentMap.SizeY || x < 0 || y < 0 ||(!CurrentMap.HasValue[x, y]))
 				{
 					toolTip.RemoveAll();
 					return;
@@ -135,7 +139,7 @@ namespace GrblHeightProbe2
 
 				PointF coords = CurrentMap.GetCoordinates(x, y);
 
-				toolTip.SetToolTip(pictureBoxPreview, string.Format("({0:0.##}|{1:0.##}):{2:0.###}", coords.X , coords.Y, CurrentMap[x, y]));
+				toolTip.SetToolTip(pictureBoxPreview, string.Format("({0:0.##}|{1:0.##}): {2:0.###}", coords.X , coords.Y, CurrentMap[x, y]));
 				previousMouse = e.Location;
 			}
 		}

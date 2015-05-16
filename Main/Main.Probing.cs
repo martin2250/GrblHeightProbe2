@@ -53,7 +53,7 @@ namespace GrblHeightProbe2
 						Point nextProbe = CurrentMap.NotProbed.Peek();
 						PointF nextProbeF = CurrentMap.GetCoordinates(nextProbe);
 
-						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0Z{0:F3}", Math.Max(Set.Safety, Set.Safety + CurrentMap.HighestNeighbour(nextProbe.X, nextProbe.Y))));
+						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0Z{0:F3}", Math.Max(Set.ProbeRetraction, Set.ProbeRetraction + CurrentMap.HighestNeighbour(nextProbe.X, nextProbe.Y))));
 						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0X{0:F3}Y{1:F3}", nextProbeF.X, nextProbeF.Y));
 						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G38.2Z{0:F3}F{1:F0}", Set.ProbeDepth, Set.ProbePlunge));
 					}
@@ -71,7 +71,7 @@ namespace GrblHeightProbe2
 						PointF nextProbeF = CurrentMap.GetCoordinates(nextProbe);
 
 						GRBL.SendLine("G90G21");
-						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0Z{0:F3}", Math.Max(Set.Safety, Set.Safety + CurrentMap.HighestNeighbour(nextProbe.X, nextProbe.Y))));
+						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0Z{0:F3}", Math.Max(Set.ProbeRetraction, Set.ProbeRetraction + CurrentMap.HighestNeighbour(nextProbe.X, nextProbe.Y))));
 
 						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0X{0:F3}Y{1:F3}", nextProbeF.X, nextProbeF.Y));
 						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G38.2Z{0:F3}F{1:F0}", Set.ProbeDepth, Set.ProbePlunge));

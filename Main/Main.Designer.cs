@@ -73,7 +73,7 @@
             this.aboutToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(339, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(431, 24);
 			this.menuStripMain.TabIndex = 0;
 			this.menuStripMain.Text = "menuStripMain";
 			// 
