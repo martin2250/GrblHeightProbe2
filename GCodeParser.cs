@@ -19,8 +19,6 @@ namespace GrblHeightProbe2
 		private DistanceUnit Units = DistanceUnit.MM;
 		private Vector3 Position = new Vector3(0.0001f, 0.0001f, 0.0001f);
 
-		public List<GCodeCommand> Commands = new List<GCodeCommand>();
-
 		private GCodeCommand ParseLine(MatchCollection matches)
 		{
 			if (matches[0].Groups[1].Value != "G")
@@ -147,63 +145,83 @@ namespace GrblHeightProbe2
 			return new OtherCode(matches);
 		}
 
-		public GCodeParser(string path) : this(File.OpenRead(path)) { }
-		public GCodeParser(FileStream fileStream)
+		public GCodeParser()
 		{
-			StreamReader file = new StreamReader(fileStream);
 
-			while (!file.EndOfStream)
+		}
+
+		public List<GCodeCommand> Parse(string path)
+		{
+			return Parse(new StreamReader(path));
+		}
+
+		public List<GCodeCommand> Parse(StreamReader file)
+		{
+			DistanceMode = ParseDistanceMode.Absolute;
+			ArcDistanceMode = ParseDistanceMode.Incremental;
+			Units = DistanceUnit.MM;
+			Position = new Vector3(0.0001f, 0.0001f, 0.0001f);
+
+			List<GCodeCommand> Commands = new List<GCodeCommand>();
+
+			try
 			{
-				string input = file.ReadLine();
+				while (!file.EndOfStream)
+				{
+					string input = file.ReadLine();
 
-				int index = input.IndexOf(';');
-				if (index >= 0)
-					input = input.Substring(0, index);
+					int index = input.IndexOf(';');
+					if (index >= 0)
+						input = input.Substring(0, index);
 
-				index = input.IndexOf('(');
-				if (index >= 0)
-					input = input.Substring(0, index);
+					index = input.IndexOf('(');
+					if (index >= 0)
+						input = input.Substring(0, index);
 
-				MatchCollection matches = GCodeSplitter.Matches(input);
+					MatchCollection matches = GCodeSplitter.Matches(input);
 
-				if (matches.Count == 0)
-					continue;
+					if (matches.Count == 0)
+						continue;
 
-				GCodeCommand Command = ParseLine(matches);
+					GCodeCommand Command = ParseLine(matches);
 
-				if (Command != null)
-					Commands.Add(Command);
+					if (Command != null)
+						Commands.Add(Command);
+				}
+			}
+			finally
+			{
+				file.Close();
 			}
 
-			file.Close();
+			return Commands;
 		}
 
-		public void Save(string path)
+		public static void SaveCommands(IEnumerable<GCodeCommand> commands, string path)
 		{
-			Save(new StreamWriter(path));
-		}
-		public void Save(StreamWriter file)
-		{
-			SaveCommands(Commands, file);
+			SaveCommands(commands, new StreamWriter(path));
 		}
 
 		public static void SaveCommands(IEnumerable<GCodeCommand> commands, StreamWriter file)
 		{
-			file.WriteLine("G90");
-			file.WriteLine("G21");
-			file.WriteLine();
-
-			foreach (GCodeCommand Command in commands)
+			try
 			{
-				file.WriteLine(Command.GetGCode());
-			}
+				file.WriteLine("G90");
+				file.WriteLine("G21");
+				file.WriteLine();
 
-			file.Close();
+				foreach (GCodeCommand Command in commands)
+				{
+					file.WriteLine(Command.GetGCode());
+				}
+			}
+			finally 
+			{ 
+				file.Close(); 
+			}			
 		}
 
-		//Testing: GCodeParser.SaveCommands(new GCodeParser("part.nc").ApplyHeightMap(new HeightMap(1, 1, 0.5f, 0, 0)), new System.IO.StreamWriter("output.nc"));
-
-		public IEnumerable<GCodeCommand> ApplyHeightMap(HeightMap map)
+		public static IEnumerable<GCodeCommand> ApplyHeightMap(IEnumerable<GCodeCommand> Commands, HeightMap map)
 		{
 			foreach (GCodeCommand command in Commands)
 			{
@@ -245,7 +263,7 @@ namespace GrblHeightProbe2
 							}
 						}
 					}
-					if(m is Arc)
+					if (m is Arc)
 					{
 						Arc a = (Arc)m;
 
@@ -268,7 +286,7 @@ namespace GrblHeightProbe2
 						{
 							Vector3 end = new Vector3(a.Radius, 0, 0);
 
-							if(a.Direction != ArcDirection.CCW)
+							if (a.Direction != ArcDirection.CCW)
 								end.Roll(a.StartAngle + stretch * (float)x / (float)divisions);
 							else
 								end.Roll(a.StartAngle - stretch * (float)x / (float)divisions);
@@ -281,28 +299,16 @@ namespace GrblHeightProbe2
 
 							Arc arc = new Arc(pos, end, a.Center, a.Direction);
 
-							if(x == 1)
+							if (x == 1)
 								arc.FeedRate = a.FeedRate;
 
 							yield return arc;
 							pos = end;
 						}
 					}
-
-
-
-
 				}
 
-
-
-
-
-
-
 			}
-
-
 
 			yield break;
 		}
