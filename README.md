@@ -21,7 +21,8 @@ The output file will always use IJ notation, absolute coordinates and metric uni
 
 unsupported g-codes will be preserved in the output
 
-
+Quick overview on youtube:  
+[![Video](http://img.youtube.com/vi/kzXzvcUAuus/0.jpg)](http://www.youtube.com/watch?v=kzXzvcUAuus)
 
 
 
