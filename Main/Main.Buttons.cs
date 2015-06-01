@@ -26,6 +26,10 @@ namespace GrblHeightProbe2
 		{
 			openPortToolStripMenuItem.DropDownItems.Clear();
 
+			ToolStripMenuItem otherPortItem = new ToolStripMenuItem("other port");
+			otherPortItem.Click += otherPortItem_Click;
+			openPortToolStripMenuItem.DropDownItems.Add(otherPortItem);
+
 			foreach (string PortName in SerialPort.GetPortNames())
 			{
 				ToolStripMenuItem PortItem = new ToolStripMenuItem(PortName);
@@ -34,7 +38,24 @@ namespace GrblHeightProbe2
 			}
 		}
 
+		void otherPortItem_Click(object sender, EventArgs e)
+		{
+			EnterText etxt = new EnterText();
+			etxt.Text = "Enter port name";
+			etxt.ShowDialog();
+
+			if (!etxt.Ok)
+				return;
+
+			TryOpenPort(etxt.Result);
+		}
+
 		private void PortItem_Click(object sender, EventArgs e)
+		{
+			TryOpenPort(((ToolStripMenuItem)sender).Text);
+		}
+
+		private void TryOpenPort(string name)
 		{
 			if (GRBL.Connected)
 			{
@@ -44,7 +65,7 @@ namespace GrblHeightProbe2
 
 			try
 			{
-				SerialPort serialPort = new SerialPort(((ToolStripMenuItem)sender).Text, Set.SerialBaudRate);
+				SerialPort serialPort = new SerialPort(name, Set.SerialBaudRate);
 				serialPort.Open();
 
 				serialPort.DtrEnable = true;
