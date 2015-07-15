@@ -17,7 +17,7 @@ namespace GrblHeightProbe2
 		private ParseDistanceMode DistanceMode = ParseDistanceMode.Absolute;
 		private ParseDistanceMode ArcDistanceMode = ParseDistanceMode.Incremental;
 		private DistanceUnit Units = DistanceUnit.MM;
-		private Vector3 Position = new Vector3(0.0001f, 0.0001f, 0.0001f);
+		private Vector3 Position = new Vector3(0.0f, 0.0f, 0.0f);
 
 		private GCodeCommand ParseLine(MatchCollection matches)
 		{

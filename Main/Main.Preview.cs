@@ -140,6 +140,7 @@ namespace GrblHeightProbe2
 				PointF coords = CurrentMap.GetCoordinates(x, y);
 
 				toolTip.SetToolTip(pictureBoxPreview, string.Format("({0:0.##}|{1:0.##}): {2:0.###}", coords.X , coords.Y, CurrentMap[x, y]));
+
 				previousMouse = e.Location;
 			}
 		}

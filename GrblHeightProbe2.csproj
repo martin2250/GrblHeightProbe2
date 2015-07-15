@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\EnterText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnterText.Designer.cs">
+      <DependentUpon>EnterText.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="GCode\Straight.cs" />
     <Compile Include="Vector3.cs" />
+    <EmbeddedResource Include="Forms\EnterText.resx">
+      <DependentUpon>EnterText.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
