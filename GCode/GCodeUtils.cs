@@ -25,7 +25,7 @@ namespace GrblHeightProbe2
 			file.Close();
 		}
 
-		public IEnumerable<GCodeCommand> ApplyHeightMap(this IEnumerable<GCodeCommand> commands, HeightMap map)
+		public static IEnumerable<GCodeCommand> ApplyHeightMap(this IEnumerable<GCodeCommand> commands, HeightMap map)
 		{
 			foreach (GCodeCommand command in commands)
 			{
@@ -116,7 +116,7 @@ namespace GrblHeightProbe2
 			yield break;
 		}
 
-		public Bounds Bounds(this IEnumerable<GCodeCommand> commands)
+		public static Bounds Bounds(this IEnumerable<GCodeCommand> commands)
 		{
 			Bounds b = new Bounds();
 			

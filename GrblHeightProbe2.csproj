@@ -60,6 +60,12 @@
     <Compile Include="Forms\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="GCodePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GCodePreview.Designer.cs">
+      <DependentUpon>GCodePreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="GCode\Arc.cs" />
     <Compile Include="Forms\ChangeSettings.cs">
       <SubType>Form</SubType>

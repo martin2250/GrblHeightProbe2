@@ -11,8 +11,8 @@ namespace GrblHeightProbe2
 {
 	class GCodeParser
 	{
-		private const System.Globalization.CultureInfo inv = System.Globalization.CultureInfo.InvariantCulture;
-		private const Regex GCodeSplitter = new Regex(@"([A-Z])(\-?\d+\.?\d*)", RegexOptions.Compiled);
+		private static System.Globalization.CultureInfo inv = System.Globalization.CultureInfo.InvariantCulture;
+		private static Regex GCodeSplitter = new Regex(@"([A-Z])(\-?\d+\.?\d*)", RegexOptions.Compiled);
 
 		public ParseDistanceMode DistanceMode;
 		public ParseDistanceMode ArcDistanceMode;
@@ -190,12 +190,13 @@ namespace GrblHeightProbe2
 			return Commands;
 		}
 
-		enum ParseDistanceMode
+		public enum ParseDistanceMode
 		{
 			Absolute,
 			Incremental
 		}
-		enum DistanceUnit
+
+		public enum DistanceUnit
 		{
 			MM,
 			Inches
