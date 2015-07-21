@@ -31,6 +31,8 @@ namespace GrblHeightProbe2
 		public float MaxX { get { return (SizeX - 1) * GridSize + OffsetX; } }
 		public float MaxY { get { return (SizeY - 1) * GridSize + OffsetY; } }
 
+		public Bounds Bounds { get { return new Bounds(MinX, MaxX, MinY, MaxY); } }
+
 		public event Action OnPointAdded;
 
 		public Queue<Point> NotProbed { get; private set; }
@@ -192,7 +194,7 @@ namespace GrblHeightProbe2
 				max = Math.Max(max, this[x - 1, y]);
 			}
 
-			if(y > 0 && HasValue[x, y - 1])
+			if (y > 0 && HasValue[x, y - 1])
 			{
 				max = Math.Max(max, this[x, y - 1]);
 			}
@@ -224,8 +226,14 @@ namespace GrblHeightProbe2
 			float fX = x - iLX;				//fractional part
 			float fY = y - iLY;
 
+
+			/*		WRONG (probably)
 			float linUpper = this[iHX, iHY] * fX + this[iHX, iLY] * (1 - fX);		//linear immediates
 			float linLower = this[iLX, iHY] * fX + this[iLX, iLY] * (1 - fX);
+			*/
+
+			float linUpper = this[iHX, iHY] * fX + this[iLX, iHY] * (1 - fX);		//linear immediates
+			float linLower = this[iHX, iLY] * fX + this[iLX, iLY] * (1 - fX);
 
 			return linUpper * fY + linLower * (1 - fY);		//bilinear result
 		}

@@ -25,7 +25,10 @@ namespace GrblHeightProbe2
 		private void openFileDialogGCode_FileOk(object sender, CancelEventArgs e)
 		{
 			if (CurrentMap == null || CurrentMap.NotProbed.Count > 0)
+			{
+				MessageBox.Show("Height Map not completed or missing");
 				return;
+			}
 
 			foreach (string path in openFileDialogGCode.FileNames)
 			{
