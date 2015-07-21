@@ -73,7 +73,7 @@
             this.aboutToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(431, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(339, 24);
 			this.menuStripMain.TabIndex = 0;
 			this.menuStripMain.Text = "menuStripMain";
 			// 
@@ -294,6 +294,7 @@
 			this.Name = "Main";
 			this.Text = "GRBL Height Probe 2 by martin2250";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+			this.Load += new System.EventHandler(this.Main_Load);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);

@@ -21,7 +21,8 @@ namespace GrblHeightProbe2
 			"ProbeRetraction",
 			"ProbePlunge",
 			"ProbeDepth",
-			"LogTrafficToFile"
+			"LogTrafficToFile",
+			"UpdateNotifier"
 		};
 
 		Type[] Types = new Type[] 
@@ -31,6 +32,7 @@ namespace GrblHeightProbe2
 			typeof(float),
 			typeof(float),
 			typeof(float),
+			typeof(bool),
 			typeof(bool)
 		};
 

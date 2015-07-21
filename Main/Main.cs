@@ -22,6 +22,5 @@ namespace GrblHeightProbe2
 		{
 			CurrentMap_RedrawPreview();
 		}
-
 	}
 }

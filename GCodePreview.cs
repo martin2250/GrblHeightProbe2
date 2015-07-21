@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GrblHeightProbe2
 {
-	public partial class GCodePreview : Form
+	partial class GCodePreview : Form
 	{
 		public GCodeCommand[] Commands;
 
