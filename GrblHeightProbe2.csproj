@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bounds.cs" />
     <Compile Include="Forms\EnterText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +74,8 @@
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="GCode\GCodeCommand.cs" />
-    <Compile Include="GCodeParser.cs" />
+    <Compile Include="GCode\GCodeParser.cs" />
+    <Compile Include="GCode\GCodeUtils.cs" />
     <Compile Include="GRBL.cs" />
     <Compile Include="HeightMap.cs" />
     <Compile Include="Helpers.cs" />

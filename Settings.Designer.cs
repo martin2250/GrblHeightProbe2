@@ -118,5 +118,17 @@ namespace GrblHeightProbe2 {
                 this["LogTrafficToFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.2")]
+        public float ProbeRetraction {
+            get {
+                return ((float)(this["ProbeRetraction"]));
+            }
+            set {
+                this["ProbeRetraction"] = value;
+            }
+        }
     }
 }

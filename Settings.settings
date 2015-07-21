@@ -26,5 +26,8 @@
     <Setting Name="LogTrafficToFile" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ProbeRetraction" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.2</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

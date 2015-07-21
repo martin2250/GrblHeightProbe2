@@ -34,17 +34,19 @@ namespace GrblHeightProbe2
 			{
 				try
 				{
-					GCodeParser p = new GCodeParser(path);
+					GCodeParser p = new GCodeParser();
 
 					string newpath = NewPathReg.Replace(path, @"$1.probed$2");
 
-					GCodeParser.SaveCommands(p.ApplyHeightMap(CurrentMap), new StreamWriter(newpath));
+					GCodeParser.SaveCommands(GCodeParser.ApplyHeightMap(p.Parse(path), CurrentMap), newpath);
 				}
 				catch (Exception ex)
 				{
 					MessageBox.Show(string.Format("Error while parsing File {0}\n{1}", path, ex.Message));
 				}
 			}
+
+			MessageBox.Show("Done");
 		}
 
 		private void gCodeToolStripMenuItem_DropDownOpening(object sender, EventArgs e)

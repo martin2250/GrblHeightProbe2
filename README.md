@@ -21,9 +21,10 @@ The output file will always use IJ notation, absolute coordinates and metric uni
 
 unsupported g-codes will be preserved in the output
 
+Quick overview on youtube:  
+[![Video](http://img.youtube.com/vi/kzXzvcUAuus/0.jpg)](http://www.youtube.com/watch?v=kzXzvcUAuus)
 
-
-
+If you have trouble finding the download: https://github.com/martin2250/GrblHeightProbe2/releases/latest
 
 Credits:
 	Start, Pause Icons: designed by FreePik (http://www.freepik.com)

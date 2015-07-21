@@ -158,7 +158,7 @@ namespace GrblHeightProbe2
 			return new OtherCode(matches);
 		}
 
-		public List<GCodeCommand> ParseFile(StreamReader file)
+		public List<GCodeCommand> Parse(StreamReader file)
 		{
 			List<GCodeCommand> Commands = new List<GCodeCommand>();
 
@@ -189,7 +189,6 @@ namespace GrblHeightProbe2
 
 			return Commands;
 		}
-
 
 		enum ParseDistanceMode
 		{
