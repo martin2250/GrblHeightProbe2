@@ -18,6 +18,7 @@ namespace GrblHeightProbe2
 		{
 			"SerialBaudRate",
 			"Safety",
+			"ProbeRetraction",
 			"ProbePlunge",
 			"ProbeDepth",
 			"LogTrafficToFile"
@@ -26,6 +27,7 @@ namespace GrblHeightProbe2
 		Type[] Types = new Type[] 
 		{
 			typeof(int),
+			typeof(float),
 			typeof(float),
 			typeof(float),
 			typeof(float),
