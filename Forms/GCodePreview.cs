@@ -64,11 +64,11 @@ namespace GrblHeightProbe2
 			Commands = commands.ToArray();
 			this.main = main;
 			this.path = path;
+
 			InitializeComponent();
+			this.Text += path;
 
 			GCodeUpdated();
-
-			HeightMapUpdated();
 		}
 
 		private void GCodeUpdated()

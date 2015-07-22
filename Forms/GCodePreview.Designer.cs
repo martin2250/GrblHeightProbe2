@@ -138,7 +138,7 @@
 			// movePathToolStripMenuItem
 			// 
 			this.movePathToolStripMenuItem.Name = "movePathToolStripMenuItem";
-			this.movePathToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.movePathToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.movePathToolStripMenuItem.Text = "Move Path";
 			this.movePathToolStripMenuItem.Click += new System.EventHandler(this.movePathToolStripMenuItem_Click);
 			// 
@@ -168,7 +168,7 @@
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "GCodePreview";
-			this.Text = "GCodePreview";
+			this.Text = "GCodePreview   ";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GCodePreview_FormClosing);
 			this.ResizeEnd += new System.EventHandler(this.GCodePreview_ResizeEnd);
 			this.statusStrip1.ResumeLayout(false);

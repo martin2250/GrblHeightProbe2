@@ -196,13 +196,13 @@
 			this.textBox2.Multiline = true;
 			this.textBox2.Name = "textBox2";
 			this.textBox2.ReadOnly = true;
-			this.textBox2.Size = new System.Drawing.Size(229, 144);
+			this.textBox2.Size = new System.Drawing.Size(229, 165);
 			this.textBox2.TabIndex = 17;
 			this.textBox2.Text = resources.GetString("textBox2.Text");
 			// 
 			// buttonOk
 			// 
-			this.buttonOk.Location = new System.Drawing.Point(88, 283);
+			this.buttonOk.Location = new System.Drawing.Point(88, 304);
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.Size = new System.Drawing.Size(75, 23);
 			this.buttonOk.TabIndex = 18;
@@ -212,7 +212,7 @@
 			// 
 			// buttonCancel
 			// 
-			this.buttonCancel.Location = new System.Drawing.Point(169, 283);
+			this.buttonCancel.Location = new System.Drawing.Point(169, 304);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(75, 23);
 			this.buttonCancel.TabIndex = 19;
@@ -278,7 +278,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(256, 314);
+			this.ClientSize = new System.Drawing.Size(256, 339);
 			this.Controls.Add(this.label11);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label9);
