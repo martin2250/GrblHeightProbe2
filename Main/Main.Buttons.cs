@@ -116,11 +116,37 @@ namespace GrblHeightProbe2
 			{
 				CurrentMap = new HeightMap(Set.NewHeightMapPoints.Width, Set.NewHeightMapPoints.Height, Set.NewHeightMapGridSize, Set.NewHeightMapOffset.Width, Set.NewHeightMapOffset.Height);
 
-				CurrentMap.OnPointAdded += CurrentMap_RedrawPreview;
-				CurrentMap_RedrawPreview();
+				CurrentMap.OnPointAdded += HeightMapUpdated;
 
 				toolStripButtonStart.Enabled = GRBL.Connected;
+
+				HeightMapUpdated();
 			}
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			new About().ShowDialog();
+		}
+
+		private void generateToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			GenHeightMap ghm = new GenHeightMap();
+			if (ghm.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+				return;
+
+			CurrentMap = ghm.Map;
+
+			CurrentMap.OnPointAdded += HeightMapUpdated;
+
+			toolStripButtonStart.Enabled = false;
+
+			HeightMapUpdated();
+		}
+
+		private void reportIssueToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start("https://github.com/martin2250/GrblHeightProbe2/issues");
 		}
 	}
 }

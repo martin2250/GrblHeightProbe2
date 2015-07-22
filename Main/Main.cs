@@ -11,17 +11,19 @@ namespace GrblHeightProbe2
 		public Main()
 		{
 			InitializeComponent();
+			HeightMapUpdated += Main_HeightMapUpdated;
 		}
 
-		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		void Main_HeightMapUpdated()
 		{
-			new About().ShowDialog();
+			CurrentMap_RedrawPreview();
 		}
 
 		private void pictureBoxPreview_SizeChanged(object sender, EventArgs e)
 		{
 			CurrentMap_RedrawPreview();
 		}
+	
 
 	}
 }

@@ -85,12 +85,6 @@ namespace GrblHeightProbe2
 		{
 			get
 			{
-				Vector3 start = new Vector3(Start);
-				Vector3 end = new Vector3(End);
-
-				start.Z = 0;
-				end.Z = 0;
-
 				float stretch = StartAngle - EndAngle;
 
 				if (stretch < 0)
@@ -100,8 +94,11 @@ namespace GrblHeightProbe2
 				{
 					stretch = 2 * (float)Math.PI - stretch;
 				}
-				
-				return stretch * Radius;
+
+				float circumference = stretch * Radius;
+				float height = End.X - Start.X;
+
+				return (float)Math.Sqrt(circumference * circumference + height * height);
 			}
 		}
 	}
