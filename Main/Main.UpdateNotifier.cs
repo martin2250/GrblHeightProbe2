@@ -25,7 +25,12 @@ namespace GrblHeightProbe2
 				UpdateClient.Proxy = null;	//DownloadStringAsync will block if not for this (drastically slower startup)
 
 				UpdateClient.DownloadStringCompleted += UpdateClient_DownloadStringCompleted;
-				UpdateClient.DownloadStringAsync(new Uri("https://api.github.com/repos/martin2250/GrblHeightProbe2/releases/latest"));
+
+				new System.Threading.Thread(() =>	//still blocks sometimes ?! this ought to take care of it...
+				{ 
+					UpdateClient.DownloadStringAsync(new Uri("https://api.github.com/repos/martin2250/GrblHeightProbe2/releases/latest")); 
+				}).Start();
+				
 			}
 		}
 

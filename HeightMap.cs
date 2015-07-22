@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GrblHeightProbe2
 {
-	class HeightMap
+	public class HeightMap
 	{
 		const string FileHeader = "HeightMapV2.0 Do not modify!";
 
@@ -31,7 +31,7 @@ namespace GrblHeightProbe2
 		public float MaxX { get { return (SizeX - 1) * GridSize + OffsetX; } }
 		public float MaxY { get { return (SizeY - 1) * GridSize + OffsetY; } }
 
-		public Bounds Bounds { get { return new Bounds(MinX, MaxX, MinY, MaxY); } }
+		public Bounds Dimensions { get { return new Bounds(MinX, MaxX, MinY, MaxY); } }
 
 		public event Action OnPointAdded;
 

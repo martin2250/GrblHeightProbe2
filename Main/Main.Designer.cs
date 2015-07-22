@@ -35,6 +35,7 @@
 			this.openHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportToCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resetToDefaultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,20 +44,21 @@
 			this.closePortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.manualConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.applyToFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.openGCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
 			this.testremoveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openFileDialogHMap = new System.Windows.Forms.OpenFileDialog();
-			this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
 			this.openFileDialogGCode = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
+			this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
+			this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
@@ -70,10 +72,11 @@
             this.settingsToolStripMenuItem,
             this.connectionToolStripMenuItem1,
             this.gCodeToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.reportIssueToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(339, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(514, 24);
 			this.menuStripMain.TabIndex = 0;
 			this.menuStripMain.Text = "menuStripMain";
 			// 
@@ -83,7 +86,8 @@
             this.newHeightMapToolStripMenuItem,
             this.openHeightMapToolStripMenuItem,
             this.saveHeightMapToolStripMenuItem,
-            this.exportToCSVToolStripMenuItem});
+            this.exportToCSVToolStripMenuItem,
+            this.generateToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
 			this.fileToolStripMenuItem.Text = "Height Map";
@@ -115,6 +119,13 @@
 			this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.exportToCSVToolStripMenuItem.Text = "Export to CSV";
 			this.exportToCSVToolStripMenuItem.Click += new System.EventHandler(this.exportToCSVToolStripMenuItem_Click);
+			// 
+			// generateToolStripMenuItem
+			// 
+			this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
+			this.generateToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.generateToolStripMenuItem.Text = "Generate";
+			this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
 			// 
 			// settingsToolStripMenuItem
 			// 
@@ -175,18 +186,17 @@
 			// gCodeToolStripMenuItem
 			// 
 			this.gCodeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.applyToFilesToolStripMenuItem});
+            this.openGCodeToolStripMenuItem});
 			this.gCodeToolStripMenuItem.Name = "gCodeToolStripMenuItem";
 			this.gCodeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
 			this.gCodeToolStripMenuItem.Text = "GCode";
-			this.gCodeToolStripMenuItem.DropDownOpening += new System.EventHandler(this.gCodeToolStripMenuItem_DropDownOpening);
 			// 
-			// applyToFilesToolStripMenuItem
+			// openGCodeToolStripMenuItem
 			// 
-			this.applyToFilesToolStripMenuItem.Name = "applyToFilesToolStripMenuItem";
-			this.applyToFilesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-			this.applyToFilesToolStripMenuItem.Text = "Apply to Files";
-			this.applyToFilesToolStripMenuItem.Click += new System.EventHandler(this.applyToFilesToolStripMenuItem_Click);
+			this.openGCodeToolStripMenuItem.Name = "openGCodeToolStripMenuItem";
+			this.openGCodeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+			this.openGCodeToolStripMenuItem.Text = "Open";
+			this.openGCodeToolStripMenuItem.Click += new System.EventHandler(this.openGCodeToolStripMenuItem_Click);
 			// 
 			// aboutToolStripMenuItem
 			// 
@@ -201,31 +211,11 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonStart,
             this.toolStripButtonPause});
-			this.toolStrip1.Location = new System.Drawing.Point(339, 0);
+			this.toolStrip1.Location = new System.Drawing.Point(422, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(213, 25);
 			this.toolStrip1.TabIndex = 2;
 			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// toolStripButtonStart
-			// 
-			this.toolStripButtonStart.Enabled = false;
-			this.toolStripButtonStart.Image = global::GrblHeightProbe2.Properties.Resources.play124;
-			this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonStart.Name = "toolStripButtonStart";
-			this.toolStripButtonStart.Size = new System.Drawing.Size(143, 22);
-			this.toolStripButtonStart.Text = "Start/Resume Probing";
-			this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
-			// 
-			// toolStripButtonPause
-			// 
-			this.toolStripButtonPause.Enabled = false;
-			this.toolStripButtonPause.Image = global::GrblHeightProbe2.Properties.Resources.pause52;
-			this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonPause.Name = "toolStripButtonPause";
-			this.toolStripButtonPause.Size = new System.Drawing.Size(58, 22);
-			this.toolStripButtonPause.Text = "Pause";
-			this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
 			// 
 			// testremoveToolStripMenuItem
 			// 
@@ -257,6 +247,38 @@
 			this.openFileDialogHMap.Filter = "Height Maps|*.hmap|All Files|*.*";
 			this.openFileDialogHMap.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
 			// 
+			// openFileDialogGCode
+			// 
+			this.openFileDialogGCode.Filter = "GCode Files|*.nc;*.tap;*.gcode;*.cnc|All Files|*.*";
+			this.openFileDialogGCode.Multiselect = true;
+			this.openFileDialogGCode.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogGCode_FileOk);
+			// 
+			// saveFileDialogExport
+			// 
+			this.saveFileDialogExport.DefaultExt = "csv";
+			this.saveFileDialogExport.Filter = "CSV Files|*.csv|All Files|*.*";
+			this.saveFileDialogExport.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogExport_FileOk);
+			// 
+			// toolStripButtonStart
+			// 
+			this.toolStripButtonStart.Enabled = false;
+			this.toolStripButtonStart.Image = global::GrblHeightProbe2.Properties.Resources.play124;
+			this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonStart.Name = "toolStripButtonStart";
+			this.toolStripButtonStart.Size = new System.Drawing.Size(143, 22);
+			this.toolStripButtonStart.Text = "Start/Resume Probing";
+			this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
+			// 
+			// toolStripButtonPause
+			// 
+			this.toolStripButtonPause.Enabled = false;
+			this.toolStripButtonPause.Image = global::GrblHeightProbe2.Properties.Resources.pause52;
+			this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonPause.Name = "toolStripButtonPause";
+			this.toolStripButtonPause.Size = new System.Drawing.Size(58, 22);
+			this.toolStripButtonPause.Text = "Pause";
+			this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
+			// 
 			// pictureBoxPreview
 			// 
 			this.pictureBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -270,17 +292,12 @@
 			this.pictureBoxPreview.SizeChanged += new System.EventHandler(this.pictureBoxPreview_SizeChanged);
 			this.pictureBoxPreview.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxPreview_MouseMove);
 			// 
-			// openFileDialogGCode
+			// reportIssueToolStripMenuItem
 			// 
-			this.openFileDialogGCode.Filter = "GCode Files|*.nc;*.tap;*.gcode;*.cnc|All Files|*.*";
-			this.openFileDialogGCode.Multiselect = true;
-			this.openFileDialogGCode.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogGCode_FileOk);
-			// 
-			// saveFileDialogExport
-			// 
-			this.saveFileDialogExport.DefaultExt = "csv";
-			this.saveFileDialogExport.Filter = "CSV Files|*.csv|All Files|*.*";
-			this.saveFileDialogExport.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogExport_FileOk);
+			this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
+			this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+			this.reportIssueToolStripMenuItem.Text = "Report Issue";
+			this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.reportIssueToolStripMenuItem_Click);
 			// 
 			// Main
 			// 
@@ -291,6 +308,7 @@
 			this.Controls.Add(this.pictureBoxPreview);
 			this.Controls.Add(this.menuStripMain);
 			this.MainMenuStrip = this.menuStripMain;
+			this.MinimumSize = new System.Drawing.Size(600, 300);
 			this.Name = "Main";
 			this.Text = "GRBL Height Probe 2 by martin2250";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
@@ -329,12 +347,14 @@
 		private System.Windows.Forms.ToolStripButton toolStripButtonStart;
 		private System.Windows.Forms.ToolStripButton toolStripButtonPause;
 		private System.Windows.Forms.ToolStripMenuItem gCodeToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem applyToFilesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem openGCodeToolStripMenuItem;
 		private System.Windows.Forms.OpenFileDialog openFileDialogGCode;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exportToCSVToolStripMenuItem;
 		private System.Windows.Forms.SaveFileDialog saveFileDialogExport;
 		private System.Windows.Forms.ToolTip toolTip;
+		private System.Windows.Forms.ToolStripMenuItem generateToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem reportIssueToolStripMenuItem;
     }
 }
 

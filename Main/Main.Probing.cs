@@ -11,7 +11,7 @@ namespace GrblHeightProbe2
 {
 	public partial class Main : Form
 	{
-		HeightMap CurrentMap = null;
+		public HeightMap CurrentMap = null;
 
 		static Regex ProbeSplit = new Regex(@"\[PRB:(-?[\d.]*),(-?[\d.]*),(-?[\d.]*):?(0|1)?\]", RegexOptions.Compiled);
 		static Regex StatusWorkSplit = new Regex(@"WPos:(-?[\d.]*),(-?[\d.]*),(-?[\d.]*)", RegexOptions.Compiled);

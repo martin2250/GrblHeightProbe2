@@ -17,9 +17,6 @@ namespace GrblHeightProbe2
 
 		Image GetPreview(HeightMap map, Size ImgSize)
 		{
-			System.Diagnostics.Stopwatch s = new System.Diagnostics.Stopwatch();
-			s.Start();
-
 			//Determine Size of single Check (without two pixel border
 			//according to http://www.wolframalpha.com/input/?i=solve+s%3Dg*%28x+-+1%29+%2Bb+*+x+for+g
 			PixelsPerCheck = Math.Min(
@@ -102,8 +99,6 @@ namespace GrblHeightProbe2
 
 			gfx.Dispose();
 
-			s.Stop();
-			Console.WriteLine(s.Elapsed);
 
 			return b;
 		}

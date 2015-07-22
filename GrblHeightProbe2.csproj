@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A52E39AE-D1DE-4842-BC9C-DDCDA5F4E67F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GrblHeightProbe2</RootNamespace>
     <AssemblyName>GrblHeightProbe2</AssemblyName>
@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ThreeFloatPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThreeFloatPicker.Designer.cs">
+      <DependentUpon>ThreeFloatPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bounds.cs" />
     <Compile Include="Forms\EnterText.cs">
       <SubType>Form</SubType>
@@ -61,10 +67,14 @@
     <Compile Include="Forms\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="GCodePreview.cs">
+    <Compile Include="Forms\GCodePreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GCodePreview.Designer.cs">
+    <Compile Include="Forms\GCodePreview.Designer.cs">
+      <DependentUpon>GCodePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GCodePreview.Preview.cs">
+      <SubType>Form</SubType>
       <DependentUpon>GCodePreview.cs</DependentUpon>
     </Compile>
     <Compile Include="GCode\Arc.cs" />
@@ -83,10 +93,16 @@
     <Compile Include="GCode\GCodeCommand.cs" />
     <Compile Include="GCode\GCodeParser.cs" />
     <Compile Include="GCode\GCodeUtils.cs" />
+    <Compile Include="Forms\GenHeightMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GenHeightMap.Designer.cs">
+      <DependentUpon>GenHeightMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GRBL.cs" />
     <Compile Include="HeightMap.cs" />
     <Compile Include="Helpers.cs" />
-    <Compile Include="Main\Main.ApplyMap.cs">
+    <Compile Include="Main\Main.OpenGCode.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main\Main.HeightMapIO.cs">
@@ -136,6 +152,12 @@
     <EmbeddedResource Include="Forms\ConsoleWindow.resx">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GCodePreview.resx">
+      <DependentUpon>GCodePreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GenHeightMap.resx">
+      <DependentUpon>GenHeightMap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +177,9 @@
     <Compile Include="Main\Main.Preview.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="Forms\ThreeFloatPicker.resx">
+      <DependentUpon>ThreeFloatPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

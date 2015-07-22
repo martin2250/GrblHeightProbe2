@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrblHeightProbe2
 {
-	class Bounds
+	public class Bounds
 	{
 		public float MinX { get; set; }
 		public float MaxX { get; set; }

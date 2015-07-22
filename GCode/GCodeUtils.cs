@@ -116,7 +116,7 @@ namespace GrblHeightProbe2
 			yield break;
 		}
 
-		public static Bounds Bounds(this IEnumerable<GCodeCommand> commands)
+		public static Bounds Dimensions(this IEnumerable<GCodeCommand> commands)
 		{
 			Bounds b = new Bounds();
 			
@@ -132,6 +132,26 @@ namespace GrblHeightProbe2
 			}
 
 			return b;
+		}
+
+		/// <summary>
+		/// calculates the total travelled distance in mm
+		/// </summary>
+		/// <returns>distance in mm</returns>
+		public static float TravelDistance(this IEnumerable<GCodeCommand> commands)
+		{
+			float d = 0;
+
+			foreach (var Command in commands)
+			{
+				var MoveCommand = Command as Movement;
+
+				if (MoveCommand == null)
+					continue;
+
+				d += MoveCommand.Length;
+			}
+			return d;
 		}
 	}
 }
