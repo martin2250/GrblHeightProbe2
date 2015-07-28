@@ -78,6 +78,7 @@ namespace GrblHeightProbe2
 				serialPort.WriteLine("");
 
 				toolStripButtonStart.Enabled = CurrentMap != null && CurrentMap.NotProbed.Count > 0;
+				buttonSendConsole.Enabled = true;
 			}
 			catch (Exception ex)
 			{
@@ -88,6 +89,8 @@ namespace GrblHeightProbe2
 		private void closePortToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			GRBL.Close();
+			toolStripButtonStart.Enabled = false;
+			buttonSendConsole.Enabled = false;
 		}
 
 		private void resetToDefaultsToolStripMenuItem_Click(object sender, EventArgs e)

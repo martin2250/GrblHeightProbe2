@@ -13,8 +13,9 @@ namespace GrblHeightProbe2
 		public static SerialPort Port { get; set; }
 		public static bool ProbingRunning { get; set; }
 
-		public delegate void LineReceivedHandler(string line);
-		public static event LineReceivedHandler OnLineReceived;
+		public delegate void LineHandler(string line);
+		public static event LineHandler OnLineReceived;
+		public static event LineHandler OnLineSent;
 
 		public static bool Connected
 		{
@@ -26,9 +27,16 @@ namespace GrblHeightProbe2
 			}
 		}
 
+
+
 		public static void SendLine(string line)
 		{
 			Port.WriteLine(line);
+
+			foreach (GRBL.LineHandler d in OnLineSent.GetInvocationList())
+			{
+				d.Invoke(line);
+			}
 
 			Console.WriteLine(">{0}", line);
 
@@ -62,7 +70,7 @@ namespace GrblHeightProbe2
 				{
 					string line = new string(Line, 0, Index);
 
-					foreach (GRBL.LineReceivedHandler d in OnLineReceived.GetInvocationList())
+					foreach (GRBL.LineHandler d in OnLineReceived.GetInvocationList())
 					{
 						d.Invoke(line);
 					}

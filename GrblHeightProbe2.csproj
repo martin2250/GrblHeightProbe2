@@ -102,6 +102,9 @@
     <Compile Include="GRBL.cs" />
     <Compile Include="HeightMap.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Main\Main.Console.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main\Main.OpenGCode.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -12,6 +12,8 @@ namespace GrblHeightProbe2
 		{
 			InitializeComponent();
 			HeightMapUpdated += Main_HeightMapUpdated;
+			GRBL.OnLineReceived += GRBL_OnLineReceived_Console;
+			GRBL.OnLineSent += GRBL_OnLineSent_Console;
 		}
 
 		void Main_HeightMapUpdated()
@@ -23,7 +25,6 @@ namespace GrblHeightProbe2
 		{
 			CurrentMap_RedrawPreview();
 		}
-	
 
 	}
 }
