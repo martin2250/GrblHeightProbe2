@@ -63,7 +63,6 @@
 			this.buttonSendConsole = new System.Windows.Forms.Button();
 			this.textBoxConInput = new System.Windows.Forms.TextBox();
 			this.textBoxConsole = new System.Windows.Forms.RichTextBox();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.menuStripMain.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -319,8 +318,8 @@
 			this.splitContainer1.Panel2.Controls.Add(this.buttonSendConsole);
 			this.splitContainer1.Panel2.Controls.Add(this.textBoxConInput);
 			this.splitContainer1.Panel2.Controls.Add(this.textBoxConsole);
-			this.splitContainer1.Size = new System.Drawing.Size(795, 504);
-			this.splitContainer1.SplitterDistance = 251;
+			this.splitContainer1.Size = new System.Drawing.Size(795, 517);
+			this.splitContainer1.SplitterDistance = 257;
 			this.splitContainer1.TabIndex = 3;
 			// 
 			// pictureBoxPreview
@@ -330,7 +329,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pictureBoxPreview.Location = new System.Drawing.Point(3, 3);
 			this.pictureBoxPreview.Name = "pictureBoxPreview";
-			this.pictureBoxPreview.Size = new System.Drawing.Size(789, 245);
+			this.pictureBoxPreview.Size = new System.Drawing.Size(789, 251);
 			this.pictureBoxPreview.TabIndex = 1;
 			this.pictureBoxPreview.TabStop = false;
 			this.pictureBoxPreview.SizeChanged += new System.EventHandler(this.pictureBoxPreview_SizeChanged);
@@ -340,7 +339,7 @@
 			// 
 			this.buttonSendConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonSendConsole.Enabled = false;
-			this.buttonSendConsole.Location = new System.Drawing.Point(717, 223);
+			this.buttonSendConsole.Location = new System.Drawing.Point(717, 230);
 			this.buttonSendConsole.Name = "buttonSendConsole";
 			this.buttonSendConsole.Size = new System.Drawing.Size(75, 23);
 			this.buttonSendConsole.TabIndex = 2;
@@ -352,7 +351,7 @@
 			// 
 			this.textBoxConInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxConInput.Location = new System.Drawing.Point(3, 226);
+			this.textBoxConInput.Location = new System.Drawing.Point(3, 233);
 			this.textBoxConInput.Name = "textBoxConInput";
 			this.textBoxConInput.Size = new System.Drawing.Size(708, 20);
 			this.textBoxConInput.TabIndex = 1;
@@ -367,24 +366,15 @@
 			this.textBoxConsole.Name = "textBoxConsole";
 			this.textBoxConsole.ReadOnly = true;
 			this.textBoxConsole.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-			this.textBoxConsole.Size = new System.Drawing.Size(789, 214);
+			this.textBoxConsole.Size = new System.Drawing.Size(789, 221);
 			this.textBoxConsole.TabIndex = 0;
 			this.textBoxConsole.Text = "";
-			// 
-			// statusStrip1
-			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 534);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(819, 22);
-			this.statusStrip1.TabIndex = 4;
-			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(819, 556);
-			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.menuStripMain);
@@ -445,7 +435,6 @@
 		private System.Windows.Forms.Button buttonSendConsole;
 		private System.Windows.Forms.TextBox textBoxConInput;
 		private System.Windows.Forms.RichTextBox textBoxConsole;
-		private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 
