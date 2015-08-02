@@ -65,6 +65,7 @@
 			this.Name = "ChangeSettings";
 			this.Text = "Settings";
 			this.Load += new System.EventHandler(this.ChangeSettings_Load);
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 
         }

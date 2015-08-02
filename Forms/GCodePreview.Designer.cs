@@ -176,6 +176,7 @@
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

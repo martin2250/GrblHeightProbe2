@@ -160,6 +160,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.X)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Y)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Z)).EndInit();
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

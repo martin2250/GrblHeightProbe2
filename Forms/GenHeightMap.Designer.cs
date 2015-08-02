@@ -54,6 +54,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pY)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pX)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownGrid)).BeginInit();
+			this.Icon = Properties.Resources.logo;
 			this.SuspendLayout();
 			// 
 			// Y

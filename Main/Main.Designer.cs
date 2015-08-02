@@ -42,7 +42,6 @@
 			this.connectionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.openPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.closePortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.manualConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openGCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -165,8 +164,7 @@
 			// 
 			this.connectionToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openPortToolStripMenuItem,
-            this.closePortToolStripMenuItem,
-            this.manualConsoleToolStripMenuItem});
+            this.closePortToolStripMenuItem});
 			this.connectionToolStripMenuItem1.Name = "connectionToolStripMenuItem1";
 			this.connectionToolStripMenuItem1.Size = new System.Drawing.Size(81, 20);
 			this.connectionToolStripMenuItem1.Text = "Connection";
@@ -175,7 +173,7 @@
 			// openPortToolStripMenuItem
 			// 
 			this.openPortToolStripMenuItem.Name = "openPortToolStripMenuItem";
-			this.openPortToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+			this.openPortToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.openPortToolStripMenuItem.Text = "Open";
 			this.openPortToolStripMenuItem.DropDownOpening += new System.EventHandler(this.openPortToolStripMenuItem_Click);
 			this.openPortToolStripMenuItem.Click += new System.EventHandler(this.openPortToolStripMenuItem_Click);
@@ -183,16 +181,9 @@
 			// closePortToolStripMenuItem
 			// 
 			this.closePortToolStripMenuItem.Name = "closePortToolStripMenuItem";
-			this.closePortToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+			this.closePortToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.closePortToolStripMenuItem.Text = "Close";
 			this.closePortToolStripMenuItem.Click += new System.EventHandler(this.closePortToolStripMenuItem_Click);
-			// 
-			// manualConsoleToolStripMenuItem
-			// 
-			this.manualConsoleToolStripMenuItem.Name = "manualConsoleToolStripMenuItem";
-			this.manualConsoleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-			this.manualConsoleToolStripMenuItem.Text = "Manual Console";
-			this.manualConsoleToolStripMenuItem.Click += new System.EventHandler(this.manualConsoleToolStripMenuItem_Click);
 			// 
 			// gCodeToolStripMenuItem
 			// 
@@ -378,6 +369,7 @@
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.menuStripMain);
+			this.Icon = global::GrblHeightProbe2.Properties.Resources.logo;
 			this.MainMenuStrip = this.menuStripMain;
 			this.MinimumSize = new System.Drawing.Size(600, 300);
 			this.Name = "Main";
@@ -413,8 +405,7 @@
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToDefaultsToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBoxPreview;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripMenuItem manualConsoleToolStripMenuItem;
+		private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripMenuItem testremoveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem1;

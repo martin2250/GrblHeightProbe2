@@ -118,6 +118,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
