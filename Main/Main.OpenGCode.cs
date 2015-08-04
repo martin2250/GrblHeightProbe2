@@ -26,32 +26,37 @@ namespace GrblHeightProbe2
 		{
 			foreach (string path in openFileDialogGCode.FileNames)
 			{
+				TryOpenGCode(path);
+			}
+		}
+
+		private void TryOpenGCode(string path)
+		{
+			try
+			{
+				StreamReader sr = new StreamReader(path);
+
 				try
 				{
-					StreamReader sr = new StreamReader(path);
+					GParser.Reset();
+					List<GCodeCommand> Commands = GParser.Parse(sr);
 
-					try
-					{
-						GParser.Reset();
-						List<GCodeCommand> Commands = GParser.Parse(sr);
+					GCodePreview prev = new GCodePreview(Commands, this, path);
 
-						GCodePreview prev = new GCodePreview(Commands, this, path);
+					HeightMapUpdated += prev.HeightMapUpdated;
 
-						HeightMapUpdated += prev.HeightMapUpdated;
-
-						prev.Show();
-						prev.BringToFront();
-					}
-					
-					catch (Exception ex)
-					{
-						MessageBox.Show(string.Format("Error while parsing file {0}\n{1}", path, ex.Message));
-					}
+					prev.Show();
+					prev.BringToFront();
 				}
+
 				catch (Exception ex)
 				{
-					MessageBox.Show(string.Format("Error while opening file {0}\n{1}", path, ex.Message));
+					MessageBox.Show(string.Format("Error while parsing file {0}\n{1}", path, ex.Message));
 				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(string.Format("Error while opening file {0}\n{1}", path, ex.Message));
 			}
 		}
 

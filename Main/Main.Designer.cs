@@ -173,7 +173,7 @@
 			// openPortToolStripMenuItem
 			// 
 			this.openPortToolStripMenuItem.Name = "openPortToolStripMenuItem";
-			this.openPortToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.openPortToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
 			this.openPortToolStripMenuItem.Text = "Open";
 			this.openPortToolStripMenuItem.DropDownOpening += new System.EventHandler(this.openPortToolStripMenuItem_Click);
 			this.openPortToolStripMenuItem.Click += new System.EventHandler(this.openPortToolStripMenuItem_Click);
@@ -181,7 +181,7 @@
 			// closePortToolStripMenuItem
 			// 
 			this.closePortToolStripMenuItem.Name = "closePortToolStripMenuItem";
-			this.closePortToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.closePortToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
 			this.closePortToolStripMenuItem.Text = "Close";
 			this.closePortToolStripMenuItem.Click += new System.EventHandler(this.closePortToolStripMenuItem_Click);
 			// 
@@ -363,6 +363,7 @@
 			// 
 			// Main
 			// 
+			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(819, 556);
@@ -376,6 +377,8 @@
 			this.Text = "GRBL Height Probe 2 by martin2250";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
 			this.Load += new System.EventHandler(this.Main_Load);
+			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Main_DragDrop);
+			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Main_DragEnter);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);

@@ -32,9 +32,14 @@ namespace GrblHeightProbe2
 
 		private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
 		{
+			TryLoadHeightMap(openFileDialogHMap.FileName);
+		}
+
+		private void TryLoadHeightMap(string path)
+		{
 			try
 			{
-				CurrentMap = new HeightMap(new BinaryReader(File.OpenRead(openFileDialogHMap.FileName)));
+				CurrentMap = new HeightMap(new BinaryReader(File.OpenRead(path)));
 				CurrentMap.OnPointAdded += HeightMapUpdated;
 
 				toolStripButtonStart.Enabled = (CurrentMap.NotProbed.Count > 0) & GRBL.Connected;
