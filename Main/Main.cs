@@ -29,9 +29,31 @@ namespace GrblHeightProbe2
 
 		private void Main_DragEnter(object sender, DragEventArgs e)
 		{
-			if(e.Data.GetDataPresent(DataFormats.FileDrop))
+			if (e.Data.GetDataPresent(DataFormats.FileDrop))
 			{
 				e.Effect = DragDropEffects.All;
+			}
+		}
+
+		private void TryOpenFile(string path)
+		{
+			if (File.Exists(path))
+			{
+				if (new FileInfo(path).Extension == ".hmap")
+				{
+					TryLoadHeightMap(path);
+				}
+				else
+				{
+					TryOpenGCode(path);
+				}
+			}
+			else if (Directory.Exists(path))
+			{
+				foreach (string dir in Directory.GetFiles(path))
+				{
+					TryOpenFile(dir);
+				}
 			}
 		}
 
@@ -39,19 +61,9 @@ namespace GrblHeightProbe2
 		{
 			if (e.Data.GetDataPresent(DataFormats.FileDrop))
 			{
-				foreach(string filePath in (string[])e.Data.GetData(DataFormats.FileDrop))
+				foreach (string filePath in (string[])e.Data.GetData(DataFormats.FileDrop))
 				{
-					if (!File.Exists(filePath))
-						continue;
-
-					if(new FileInfo(filePath).Extension == "hmap")
-					{
-						TryLoadHeightMap(filePath);
-					}
-					else
-					{
-						TryOpenGCode(filePath);
-					}
+					TryOpenFile(filePath);
 				}
 			}
 		}
