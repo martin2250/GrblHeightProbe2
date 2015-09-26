@@ -18,6 +18,7 @@ namespace GrblHeightProbe2
 		public ParseDistanceMode ArcDistanceMode;
 		public DistanceUnit Units;
 		public Vector3 Position;
+		public int LastCommand;
 
 		public void Reset()
 		{
@@ -25,6 +26,7 @@ namespace GrblHeightProbe2
 			ArcDistanceMode = ParseDistanceMode.Incremental;
 			Units = DistanceUnit.MM;
 			Position = new Vector3(0.0f, 0.0f, 0.0f);
+			LastCommand = -1;
 		}
 
 		public GCodeParser()
@@ -34,17 +36,45 @@ namespace GrblHeightProbe2
 
 		private GCodeCommand ParseLine(MatchCollection matches)
 		{
-			if (matches[0].Groups[1].Value != "G")
-				return new OtherCode(matches);
+			int Command;
 
-			if (matches[0].Groups[2].Value.Contains('.'))
-				return new OtherCode(matches);
+			if (matches[0].Groups[1].Value == "G")
+			{
+				float CommandF = float.Parse(matches[0].Groups[2].Value, inv);
+				Command = (int)CommandF;
 
-			int Command = int.Parse(matches[0].Groups[2].Value, inv);
+				if (CommandF == 90.1)
+				{
+					ArcDistanceMode = ParseDistanceMode.Absolute;
+					return null;
+				}
+
+				if (CommandF == 91.1)
+				{
+					ArcDistanceMode = ParseDistanceMode.Incremental;
+					return null;
+				}
+
+				if (CommandF != Command)        //All other 'G' commands that have a decimal point
+					return new OtherCode(matches);
+
+				LastCommand = Command;
+			}
+			else
+			{
+				if ("XYZIJKR".Contains(matches[0].Groups[1].Value))
+				{
+					Command = LastCommand;
+				}
+				else
+				{
+					return new OtherCode(matches);
+				}
+			}
 
 			float? X = null, Y = null, Z = null, I = null, J = null, F = null, R = null;
 
-			for (int index = 1; index < matches.Count; index++)
+			for (int index = 0; index < matches.Count; index++)
 			{
 				float value = float.Parse(matches[index].Groups[2].Value, inv);
 
