@@ -73,6 +73,7 @@
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.textBox1);
 			this.Name = "EnterText";
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

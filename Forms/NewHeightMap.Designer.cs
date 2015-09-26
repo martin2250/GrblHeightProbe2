@@ -301,6 +301,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownGridSize)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffsetY)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffsetX)).EndInit();
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

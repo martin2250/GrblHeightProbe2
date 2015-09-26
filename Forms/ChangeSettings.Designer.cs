@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.buttonAccept = new System.Windows.Forms.Button();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.SuspendLayout();
 			// 
 			// buttonCancel
@@ -56,13 +58,14 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(239, 313);
+			this.ClientSize = new System.Drawing.Size(301, 313);
 			this.Controls.Add(this.buttonAccept);
 			this.Controls.Add(this.buttonCancel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "ChangeSettings";
 			this.Text = "Settings";
 			this.Load += new System.EventHandler(this.ChangeSettings_Load);
+			this.Icon = Properties.Resources.logo;
 			this.ResumeLayout(false);
 
         }
@@ -71,6 +74,7 @@
 
 		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.Button buttonAccept;
+		private System.Windows.Forms.ToolTip toolTip1;
 
 	}
 }

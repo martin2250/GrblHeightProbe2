@@ -42,11 +42,13 @@
 			this.connectionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.openPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.closePortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.manualConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openGCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
 			this.testremoveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,17 +57,25 @@
 			this.openFileDialogGCode = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
-			this.reportIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.buttonSendConsole = new System.Windows.Forms.Button();
+			this.textBoxConInput = new System.Windows.Forms.TextBox();
+			this.textBoxConsole = new System.Windows.Forms.RichTextBox();
 			this.menuStripMain.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuStripMain
 			// 
+			this.menuStripMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.menuStripMain.Dock = System.Windows.Forms.DockStyle.None;
 			this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -76,7 +86,7 @@
             this.reportIssueToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(514, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(422, 24);
 			this.menuStripMain.TabIndex = 0;
 			this.menuStripMain.Text = "menuStripMain";
 			// 
@@ -154,8 +164,7 @@
 			// 
 			this.connectionToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openPortToolStripMenuItem,
-            this.closePortToolStripMenuItem,
-            this.manualConsoleToolStripMenuItem});
+            this.closePortToolStripMenuItem});
 			this.connectionToolStripMenuItem1.Name = "connectionToolStripMenuItem1";
 			this.connectionToolStripMenuItem1.Size = new System.Drawing.Size(81, 20);
 			this.connectionToolStripMenuItem1.Text = "Connection";
@@ -164,7 +173,7 @@
 			// openPortToolStripMenuItem
 			// 
 			this.openPortToolStripMenuItem.Name = "openPortToolStripMenuItem";
-			this.openPortToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+			this.openPortToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
 			this.openPortToolStripMenuItem.Text = "Open";
 			this.openPortToolStripMenuItem.DropDownOpening += new System.EventHandler(this.openPortToolStripMenuItem_Click);
 			this.openPortToolStripMenuItem.Click += new System.EventHandler(this.openPortToolStripMenuItem_Click);
@@ -172,16 +181,9 @@
 			// closePortToolStripMenuItem
 			// 
 			this.closePortToolStripMenuItem.Name = "closePortToolStripMenuItem";
-			this.closePortToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+			this.closePortToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
 			this.closePortToolStripMenuItem.Text = "Close";
 			this.closePortToolStripMenuItem.Click += new System.EventHandler(this.closePortToolStripMenuItem_Click);
-			// 
-			// manualConsoleToolStripMenuItem
-			// 
-			this.manualConsoleToolStripMenuItem.Name = "manualConsoleToolStripMenuItem";
-			this.manualConsoleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-			this.manualConsoleToolStripMenuItem.Text = "Manual Console";
-			this.manualConsoleToolStripMenuItem.Click += new System.EventHandler(this.manualConsoleToolStripMenuItem_Click);
 			// 
 			// gCodeToolStripMenuItem
 			// 
@@ -205,8 +207,18 @@
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
+			// reportIssueToolStripMenuItem
+			// 
+			this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
+			this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+			this.reportIssueToolStripMenuItem.Text = "Report Issue";
+			this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.reportIssueToolStripMenuItem_Click);
+			// 
 			// toolStrip1
 			// 
+			this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonStart,
@@ -216,6 +228,26 @@
 			this.toolStrip1.Size = new System.Drawing.Size(213, 25);
 			this.toolStrip1.TabIndex = 2;
 			this.toolStrip1.Text = "toolStrip1";
+			// 
+			// toolStripButtonStart
+			// 
+			this.toolStripButtonStart.Enabled = false;
+			this.toolStripButtonStart.Image = global::GrblHeightProbe2.Properties.Resources.play124;
+			this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonStart.Name = "toolStripButtonStart";
+			this.toolStripButtonStart.Size = new System.Drawing.Size(143, 22);
+			this.toolStripButtonStart.Text = "Start/Resume Probing";
+			this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
+			// 
+			// toolStripButtonPause
+			// 
+			this.toolStripButtonPause.Enabled = false;
+			this.toolStripButtonPause.Image = global::GrblHeightProbe2.Properties.Resources.pause52;
+			this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonPause.Name = "toolStripButtonPause";
+			this.toolStripButtonPause.Size = new System.Drawing.Size(58, 22);
+			this.toolStripButtonPause.Text = "Pause";
+			this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
 			// 
 			// testremoveToolStripMenuItem
 			// 
@@ -259,64 +291,103 @@
 			this.saveFileDialogExport.Filter = "CSV Files|*.csv|All Files|*.*";
 			this.saveFileDialogExport.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogExport_FileOk);
 			// 
-			// toolStripButtonStart
+			// splitContainer1
 			// 
-			this.toolStripButtonStart.Enabled = false;
-			this.toolStripButtonStart.Image = global::GrblHeightProbe2.Properties.Resources.play124;
-			this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonStart.Name = "toolStripButtonStart";
-			this.toolStripButtonStart.Size = new System.Drawing.Size(143, 22);
-			this.toolStripButtonStart.Text = "Start/Resume Probing";
-			this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
+			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.splitContainer1.Location = new System.Drawing.Point(12, 27);
+			this.splitContainer1.Name = "splitContainer1";
+			this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
-			// toolStripButtonPause
+			// splitContainer1.Panel1
 			// 
-			this.toolStripButtonPause.Enabled = false;
-			this.toolStripButtonPause.Image = global::GrblHeightProbe2.Properties.Resources.pause52;
-			this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonPause.Name = "toolStripButtonPause";
-			this.toolStripButtonPause.Size = new System.Drawing.Size(58, 22);
-			this.toolStripButtonPause.Text = "Pause";
-			this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
+			this.splitContainer1.Panel1.Controls.Add(this.pictureBoxPreview);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.buttonSendConsole);
+			this.splitContainer1.Panel2.Controls.Add(this.textBoxConInput);
+			this.splitContainer1.Panel2.Controls.Add(this.textBoxConsole);
+			this.splitContainer1.Size = new System.Drawing.Size(795, 517);
+			this.splitContainer1.SplitterDistance = 257;
+			this.splitContainer1.TabIndex = 3;
 			// 
 			// pictureBoxPreview
 			// 
 			this.pictureBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBoxPreview.Location = new System.Drawing.Point(12, 28);
+			this.pictureBoxPreview.Location = new System.Drawing.Point(3, 3);
 			this.pictureBoxPreview.Name = "pictureBoxPreview";
-			this.pictureBoxPreview.Size = new System.Drawing.Size(795, 467);
+			this.pictureBoxPreview.Size = new System.Drawing.Size(789, 251);
 			this.pictureBoxPreview.TabIndex = 1;
 			this.pictureBoxPreview.TabStop = false;
 			this.pictureBoxPreview.SizeChanged += new System.EventHandler(this.pictureBoxPreview_SizeChanged);
 			this.pictureBoxPreview.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxPreview_MouseMove);
 			// 
-			// reportIssueToolStripMenuItem
+			// buttonSendConsole
 			// 
-			this.reportIssueToolStripMenuItem.Name = "reportIssueToolStripMenuItem";
-			this.reportIssueToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-			this.reportIssueToolStripMenuItem.Text = "Report Issue";
-			this.reportIssueToolStripMenuItem.Click += new System.EventHandler(this.reportIssueToolStripMenuItem_Click);
+			this.buttonSendConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonSendConsole.Enabled = false;
+			this.buttonSendConsole.Location = new System.Drawing.Point(717, 230);
+			this.buttonSendConsole.Name = "buttonSendConsole";
+			this.buttonSendConsole.Size = new System.Drawing.Size(75, 23);
+			this.buttonSendConsole.TabIndex = 2;
+			this.buttonSendConsole.Text = "Send";
+			this.buttonSendConsole.UseVisualStyleBackColor = true;
+			this.buttonSendConsole.Click += new System.EventHandler(this.buttonSendConsole_Click);
+			// 
+			// textBoxConInput
+			// 
+			this.textBoxConInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxConInput.Location = new System.Drawing.Point(3, 233);
+			this.textBoxConInput.Name = "textBoxConInput";
+			this.textBoxConInput.Size = new System.Drawing.Size(708, 20);
+			this.textBoxConInput.TabIndex = 1;
+			this.textBoxConInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConInput_KeyDown);
+			// 
+			// textBoxConsole
+			// 
+			this.textBoxConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxConsole.Location = new System.Drawing.Point(3, 3);
+			this.textBoxConsole.Name = "textBoxConsole";
+			this.textBoxConsole.ReadOnly = true;
+			this.textBoxConsole.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+			this.textBoxConsole.Size = new System.Drawing.Size(789, 221);
+			this.textBoxConsole.TabIndex = 0;
+			this.textBoxConsole.Text = "";
 			// 
 			// Main
 			// 
+			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(819, 507);
+			this.ClientSize = new System.Drawing.Size(819, 556);
+			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.toolStrip1);
-			this.Controls.Add(this.pictureBoxPreview);
 			this.Controls.Add(this.menuStripMain);
+			this.Icon = global::GrblHeightProbe2.Properties.Resources.logo;
 			this.MainMenuStrip = this.menuStripMain;
 			this.MinimumSize = new System.Drawing.Size(600, 300);
 			this.Name = "Main";
 			this.Text = "GRBL Height Probe 2 by martin2250";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
 			this.Load += new System.EventHandler(this.Main_Load);
+			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Main_DragDrop);
+			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Main_DragEnter);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			this.splitContainer1.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -337,8 +408,7 @@
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToDefaultsToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBoxPreview;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripMenuItem manualConsoleToolStripMenuItem;
+		private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripMenuItem testremoveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem1;
@@ -355,6 +425,10 @@
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.ToolStripMenuItem generateToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem reportIssueToolStripMenuItem;
+		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.Button buttonSendConsole;
+		private System.Windows.Forms.TextBox textBoxConInput;
+		private System.Windows.Forms.RichTextBox textBoxConsole;
     }
 }
 

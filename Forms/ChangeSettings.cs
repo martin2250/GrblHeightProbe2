@@ -14,15 +14,16 @@ namespace GrblHeightProbe2
 	{
 		Settings set = Settings.Default;
 
-		string[] Names = new string[] 
+		//Settings, format {SettingName, SettingDescription (short), Setting Explanation}
+		string[,] Names = new string[,] 
 		{
-			"SerialBaudRate",
-			"Safety",
-			"ProbeRetraction",
-			"ProbePlunge",
-			"ProbeDepth",
-			"LogTrafficToFile",
-			"UpdateNotifier"
+			{"SerialBaudRate",		"Baud Rate",						"The Baud Rate used to communicate with GRBL"},
+			{"Safety",				"Safety Height [mm]",				"The height to return to after probing"},
+			{"ProbeRetraction",		"Probing Retraction [mm]",			"The height to return after completing a probing cycle and before moving to the next"},
+			{"ProbePlunge",			"Probe plunge rate [mm/min]",		"The plunge rate used for probing"},
+			{"ProbeDepth",			"Maximum depth [mm]",					"In case the probe pin does not fire, this is the maximum distance travelled (only a safety feature)"},
+			{"LogTrafficToFile",	"Log the traffic to a file",		"Log all the traffic to a file for debugging purposes"},
+			{"UpdateNotifier",		"Automatically check for update",	"Check for updates in the background (only on program startup)"}
 		};
 
 		Type[] Types = new Type[] 
@@ -44,32 +45,34 @@ namespace GrblHeightProbe2
 		{
 			InitializeComponent();
 
-			for(int i = 0; i < Names.Length; i++)
+			for (int i = 0; i < Types.Length; i++)
 			{
 				if (Types[i] != typeof(bool))
 				{
 					TextBox tb = new TextBox();
-					tb.Text = set[Names[i]].ToString();
+					tb.Text = set[Names[i, 0]].ToString();
 					tb.Size = new Size(100, lineDist);
-					tb.Location = new Point(105, i * (lineDist + 5) + 20);
+					tb.Location = new Point(185, i * (lineDist + 5) + 20);
 					Controls.Add(tb);
 					controlList.Add(tb);
+					toolTip1.SetToolTip(tb, Names[i, 2]);
 				}
 				else
 				{
 					CheckBox cb = new CheckBox();
-					cb.Checked = (bool)set[Names[i]];
-					cb.Location = new Point(105, i * (lineDist + 5) + 20);
+					cb.Checked = (bool)set[Names[i, 0]];
+					cb.Location = new Point(185, i * (lineDist + 5) + 20);
 					Controls.Add(cb);
 					controlList.Add(cb);
+					toolTip1.SetToolTip(cb, Names[i, 2]);
 				}
 
 				Label l = new Label();
-				l.Text = Names[i];
+				l.Text = Names[i, 1];
 				l.AutoSize = true;
-				l.Location = new Point(100 - TextRenderer.MeasureText(l.Text, new Font(l.Font.FontFamily, l.Font.Size, l.Font.Style)).Width, i * (lineDist + 5) + 20);
+				l.Location = new Point(180 - TextRenderer.MeasureText(l.Text, new Font(l.Font.FontFamily, l.Font.Size, l.Font.Style)).Width, i * (lineDist + 5) + 20);
 				Controls.Add(l);
-								
+				toolTip1.SetToolTip(l, Names[i, 2]);
 			}
 
 
@@ -85,7 +88,7 @@ namespace GrblHeightProbe2
 			bool success = true;
 			object[] results = new object[Names.Length];
 
-			for(int i = 0; i < Names.Length; i++)
+			for (int i = 0; i < Types.Length; i++)
 			{
 				switch(Types[i].Name)
 				{
@@ -107,9 +110,9 @@ namespace GrblHeightProbe2
 
 			if (success)
 			{
-				for (int i = 0; i < Names.Length; i++)
+				for (int i = 0; i < Types.Length; i++)
 				{
-					set[Names[i]] = results[i];
+					set[Names[i, 0]] = results[i];
 				}
 				set.Save();
 				Close();

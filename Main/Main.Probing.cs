@@ -83,8 +83,12 @@ namespace GrblHeightProbe2
 						GRBL.SendLine(string.Format(System.Globalization.CultureInfo.InvariantCulture, "G0Z{0:F3}", Set.Safety));
 						GRBL.SendLine("G0X0Y0");
 						GRBL.ProbingRunning = false;
-						toolStripButtonStart.Enabled = true;
-						toolStripButtonPause.Enabled = false;
+
+						Invoke(new Action(() => {
+							toolStripButtonStart.Enabled = true;
+							toolStripButtonPause.Enabled = false;
+						}));
+						
 						GRBL.OnLineReceived -= GRBL_OnLineReceived;
 
 						MessageBox.Show("Received error from GRBL:\n" + line);
@@ -105,6 +109,7 @@ namespace GrblHeightProbe2
 
 				toolStripButtonStart.Enabled = false;
 				toolStripButtonPause.Enabled = true;
+				buttonSendConsole.Enabled = false;
 			}
 		}
 
@@ -115,6 +120,7 @@ namespace GrblHeightProbe2
 			GRBL.ProbingRunning = false;
 			toolStripButtonStart.Enabled = true;
 			toolStripButtonPause.Enabled = false;
+			buttonSendConsole.Enabled = true;
 			GRBL.OnLineReceived -= GRBL_OnLineReceived;
 		}
 	}

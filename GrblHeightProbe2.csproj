@@ -11,6 +11,21 @@
     <AssemblyName>GrblHeightProbe2</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +48,10 @@
     <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>GrblHeightProbe2.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -84,12 +102,6 @@
     <Compile Include="Forms\ChangeSettings.Designer.cs">
       <DependentUpon>ChangeSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConsoleWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ConsoleWindow.Designer.cs">
-      <DependentUpon>ConsoleWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="GCode\GCodeCommand.cs" />
     <Compile Include="GCode\GCodeParser.cs" />
     <Compile Include="GCode\GCodeUtils.cs" />
@@ -102,6 +114,9 @@
     <Compile Include="GRBL.cs" />
     <Compile Include="HeightMap.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Main\Main.Console.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main\Main.OpenGCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,9 +163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangeSettings.resx">
       <DependentUpon>ChangeSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConsoleWindow.resx">
-      <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GCodePreview.resx">
       <DependentUpon>GCodePreview.cs</DependentUpon>
@@ -199,6 +211,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

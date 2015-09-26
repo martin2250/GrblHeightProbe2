@@ -102,6 +102,7 @@ namespace GrblHeightProbe2
 			gfx.Dispose();
 			straightPen.Dispose();
 			rapidPen.Dispose();
+			arcPen.Dispose();
 
 			pictureBox1.Image = b;
 
