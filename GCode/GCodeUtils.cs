@@ -90,7 +90,7 @@ namespace GrblHeightProbe2
 						{
 							Vector3 end = new Vector3(a.Radius, 0, 0);
 
-							if (a.Direction != ArcDirection.CCW)
+							if (a.Direction != ArcDirection.CW)
 								end.Roll(a.StartAngle + stretch * (float)x / (float)divisions);
 							else
 								end.Roll(a.StartAngle - stretch * (float)x / (float)divisions);
