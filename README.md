@@ -24,6 +24,9 @@ unsupported g-codes will be preserved in the output
 Quick overview on youtube:  
 [![Video](http://img.youtube.com/vi/kzXzvcUAuus/0.jpg)](http://www.youtube.com/watch?v=kzXzvcUAuus)
 
+Example output (vastly exaggerated unevenness):  
+![Chilipeppr Screenshot](http://i.imgur.com/iOl1Bn6.png)
+
 If you have trouble finding the download: https://github.com/martin2250/GrblHeightProbe2/releases/latest
 
 Credits:
