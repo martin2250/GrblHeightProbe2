@@ -32,3 +32,7 @@ If you have trouble finding the download: https://github.com/martin2250/GrblHeig
 Credits:
 	Start, Pause Icons: designed by FreePik (http://www.freepik.com)
 	Vector3 class by R Potter on codeplex (http://www.codeproject.com/Articles/17425/A-Vector-Type-for-C)
+
+Since this project did get some attention, I'll include a donation button. I'm currently working on OpenCNCPilot which will replace this program and also act as a G-Code streamer, so you won't have to switch between HeightProbe and Universal GCode Sender anymore.  
+Please note that my programs will always be (ad)free  
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7F783UGMYHRWN)
