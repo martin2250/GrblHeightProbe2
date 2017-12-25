@@ -1,8 +1,8 @@
+# [Update: Has been replaced by OpenCNCPilot](https://github.com/martin2250/OpenCNCPilot)
+
 # GrblHeightProbe2
 
 This is GRBL Height Probe, the improved version of my PCB autolevelling toolchain for GRBL-based CNC mills
-
-##[Update: OpenCNCPilot now available](https://github.com/martin2250/OpenCNCPilot)
 
 If you're using a CNC mill to isolate tracks on a PCB, you'll run into problems where the surface of the PCB isn't entirely flat, so you'll end up with broken or shorted traces.
 GRBL Height Probe aims to eliminate that problem by first probing the surface, then adjusting any GCode file to follow the surface exactly.
